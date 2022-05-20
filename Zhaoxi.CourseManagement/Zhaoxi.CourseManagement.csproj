@@ -116,10 +116,13 @@
     <Compile Include="Converter\GenderConverter.cs" />
     <Compile Include="DataAccess\DataEntity\UserEntity.cs" />
     <Compile Include="DataAccess\LocalDataAccess.cs" />
+    <Compile Include="Model\CategoryItemModel.cs" />
+    <Compile Include="Model\CourseModel.cs" />
     <Compile Include="Model\CourseSeriesModel.cs" />
     <Compile Include="Model\LoginModel.cs" />
     <Compile Include="Model\SeriesModel.cs" />
     <Compile Include="Model\UserModel.cs" />
+    <Compile Include="ViewModel\CoursePageViewModel.cs" />
     <Compile Include="ViewModel\FirstPageViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />

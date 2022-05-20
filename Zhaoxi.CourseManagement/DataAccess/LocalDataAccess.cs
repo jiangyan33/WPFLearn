@@ -184,5 +184,98 @@ namespace Zhaoxi.CourseManagement.DataAccess
                 Dispose();
             }
         }
+
+        public List<string> GetTeachers()
+        {
+            try
+            {
+                var result = new List<string>();
+                if (DBConnection())
+                {
+                    var userSql = @"SELECT
+                                        real_name
+                                    FROM
+                                        users where is_teacher=1;";
+
+                    adapter = new MySqlDataAdapter(userSql, conn);
+                    var table = new DataTable();
+                    var count = adapter.Fill(table);
+
+                    foreach (var dr in table.AsEnumerable())
+                    {
+                        result.Add(dr.Field<string>("real_name"));
+                    }
+
+                }
+                return result;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                Dispose();
+            }
+        }
+
+        public List<CourseModel> GetCourses()
+        {
+            try
+            {
+                var result = new List<CourseModel>();
+                if (DBConnection())
+                {
+                    var userSql = @"SELECT
+	                                    a.course_id,
+	                                    a.course_name,
+	                                    a.course_cover,
+	                                    a.description,
+	                                    a.course_url,
+	                                    c.real_name 
+                                    FROM
+	                                    courses a
+	                                    LEFT JOIN course_teacher_relation b ON a.course_id = b.course_id
+	                                    LEFT JOIN users c ON b.teacher_id = c.user_id 
+                                    ORDER BY
+	                                    a.course_id;";
+
+                    adapter = new MySqlDataAdapter(userSql, conn);
+                    var table = new DataTable();
+                    var count = adapter.Fill(table);
+
+                    var courseId = "";
+                    CourseModel model = null;
+                    foreach (var dr in table.AsEnumerable())
+                    {
+                        var tempId = dr.Field<string>("course_id");
+                        if (courseId != tempId)
+                        {
+                            courseId = tempId;
+                            model = new CourseModel();
+                            model.CourseName = dr.Field<string>("course_name");
+                            model.CourseCover = dr.Field<string>("course_cover");
+                            model.Description = dr.Field<string>("description");
+                            model.CourseUrl = dr.Field<string>("course_url");
+                            model.Teachers = new List<string>();
+                            result.Add(model);
+                        }
+
+                        if (model != null)
+                            model.Teachers.Add(dr.Field<string>("real_name"));
+                    }
+
+                }
+                return result;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                Dispose();
+            }
+        }
     }
 }

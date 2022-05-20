@@ -106,7 +106,7 @@
             <BeginStoryboard Storyboard="{StaticResource CloseUserInfoStoryboard}" />
         </EventTrigger>
     </Window.Triggers>
-    <Border Margin="5" Background="White" CornerRadius="10">
+    <Border Margin="5" Background="#F7F9FA" CornerRadius="10">
         <Border.Effect>
             <!--在目标周围绘画投影效果  BlurRadius阴影模糊效果的半径，Direction投影的方向-->
             <DropShadowEffect Color="Gray" ShadowDepth="0" BlurRadius="5" Opacity="0.3" Direction="0" />
