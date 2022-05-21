@@ -83,7 +83,9 @@
 
                             <ItemsControl.ItemTemplate>
                                 <DataTemplate>
-                                    <RadioButton GroupName="Teacher" Content="{Binding CategoryName}" IsChecked="{Binding IsSelected}" Template="{StaticResource CategoryItemButton}" Margin="5,0"></RadioButton>
+                                    <RadioButton GroupName="Teacher" Content="{Binding CategoryName}" IsChecked="{Binding IsSelected}" Template="{StaticResource CategoryItemButton}" Margin="5,0"
+                                                 Command="{Binding DataContext.TeacherFilterCommand,RelativeSource={RelativeSource AncestorType=UserControl,Mode=FindAncestor}}"
+                                                 CommandParameter="{Binding CategoryName}" />
                                 </DataTemplate>
                             </ItemsControl.ItemTemplate>
                         </ItemsControl>
@@ -123,7 +125,7 @@
                                     <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
                                         <TextBlock FontSize="16">
                                             <Hyperlink Foreground="#333"
-                                                       Command="{Binding DataContext.OpenCourseUrl,RelativeSource={RelativeSource AncestorType=UserControl,Mode=FindAncestor}}"
+                                                       Command="{Binding DataContext.OpenCourseUrlCommand,RelativeSource={RelativeSource AncestorType=UserControl,Mode=FindAncestor}}"
                                                        CommandParameter="{Binding CourseUrl}">
                                                 <Hyperlink.Style>
                                                     <Style>

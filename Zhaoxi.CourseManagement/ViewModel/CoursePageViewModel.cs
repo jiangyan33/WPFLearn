@@ -18,20 +18,45 @@ namespace Zhaoxi.CourseManagement.ViewModel
 
         public ObservableCollection<CourseModel> CourseModels { get; set; }
 
-        public CommandBase OpenCourseUrl { get; set; }
+        private List<CourseModel> courseModelAll;
+
+        public CommandBase OpenCourseUrlCommand { get; set; }
+
+        public CommandBase TeacherFilterCommand { get; set; }
 
         public CoursePageViewModel()
         {
-            OpenCourseUrl = new CommandBase();
+            OpenCourseUrlCommand = new CommandBase();
 
-            OpenCourseUrl.DoCanExecute = new Func<object, bool>(o => true);
+            OpenCourseUrlCommand.DoCanExecute = new Func<object, bool>(o => true);
 
-            OpenCourseUrl.DoExecute = new Action<object>((o) =>
+            OpenCourseUrlCommand.DoExecute = new Action<object>((o) =>
             {
                 System.Diagnostics.Process.Start(o.ToString());
             });
+
+            TeacherFilterCommand = new CommandBase();
+
+            TeacherFilterCommand.DoCanExecute = new Func<object, bool>(o => true);
+
+            TeacherFilterCommand.DoExecute = DoFilter;
             InitCategory();
             InitCourseList();
+        }
+
+        private void DoFilter(object obj)
+        {
+            var teacherName = obj.ToString();
+            var result = courseModelAll;
+            if (teacherName != "全部")
+            {
+                result = result.FindAll(x => x.Teachers.Exists(it => it == teacherName));
+            }
+            CourseModels.Clear();
+            foreach (var item in result)
+            {
+                CourseModels.Add(item);
+            }
         }
 
         private void InitCategory()
@@ -61,8 +86,8 @@ namespace Zhaoxi.CourseManagement.ViewModel
         private void InitCourseList()
         {
             CourseModels = new ObservableCollection<CourseModel>();
-            var courses = LocalDataAccess.GetInstance().GetCourses();
-            foreach (var item in courses) CourseModels.Add(item);
+            courseModelAll = LocalDataAccess.GetInstance().GetCourses();
+            foreach (var item in courseModelAll) CourseModels.Add(item);
         }
     }
 }
