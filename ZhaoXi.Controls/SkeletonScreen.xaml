@@ -1,38 +1,44 @@
 ﻿<UserControl x:Class="ZhaoXi.Controls.SkeletonScreen"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:ZhaoXi.Controls"
-             mc:Ignorable="d" 
-             d:DesignHeight="100" d:DesignWidth="900">
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             d:DesignHeight="100"
+             d:DesignWidth="900"
+             mc:Ignorable="d">
 
     <UserControl.Triggers>
         <EventTrigger RoutedEvent="Window.Loaded">
             <BeginStoryboard>
                 <Storyboard>
-                    <ColorAnimation Duration="0:0:1" To="#F7F9FA" Storyboard.TargetName="imgBlock"
-                                    Storyboard.TargetProperty="(Background).(SolidColorBrush.Color)"
+                    <ColorAnimation AutoReverse="True"
                                     RepeatBehavior="Forever"
-                                    AutoReverse="True" />
+                                    Storyboard.TargetName="imgBlock"
+                                    Storyboard.TargetProperty="(Background).(SolidColorBrush.Color)"
+                                    To="#F7F9FA"
+                                    Duration="0:0:1" />
 
-                    <DoubleAnimation Duration="0:0:1.5" To="1" 
-                                     Storyboard.TargetName="border1" 
-                                     Storyboard.TargetProperty="Background.GradientStops[1].Offset"
+                    <DoubleAnimation AutoReverse="True"
                                      RepeatBehavior="Forever"
-                                     AutoReverse="True" />
+                                     Storyboard.TargetName="border1"
+                                     Storyboard.TargetProperty="Background.GradientStops[1].Offset"
+                                     To="1"
+                                     Duration="0:0:1.5" />
 
-                    <DoubleAnimation Duration="0:0:2" To="1" 
-                                     Storyboard.TargetName="border2" 
-                                     Storyboard.TargetProperty="Background.GradientStops[1].Offset"
+                    <DoubleAnimation AutoReverse="True"
                                      RepeatBehavior="Forever"
-                                     AutoReverse="True" />
+                                     Storyboard.TargetName="border2"
+                                     Storyboard.TargetProperty="Background.GradientStops[1].Offset"
+                                     To="1"
+                                     Duration="0:0:2" />
 
-                    <DoubleAnimation Duration="0:0:1.3" To="1" 
-                                     Storyboard.TargetName="border3" 
-                                     Storyboard.TargetProperty="Background.GradientStops[1].Offset"
+                    <DoubleAnimation AutoReverse="True"
                                      RepeatBehavior="Forever"
-                                     AutoReverse="True" />
+                                     Storyboard.TargetName="border3"
+                                     Storyboard.TargetProperty="Background.GradientStops[1].Offset"
+                                     To="1"
+                                     Duration="0:0:1.3" />
                 </Storyboard>
             </BeginStoryboard>
         </EventTrigger>
@@ -41,45 +47,57 @@
     <Grid Margin="0,8">
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="160"/>
+            <ColumnDefinition Width="160" />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
 
-        <Border Background="#DDD" Width="80" Height="65" CornerRadius="10" x:Name="imgBlock">
-
-        </Border>
+        <Border x:Name="imgBlock"
+                Width="80"
+                Height="65"
+                Background="#DDD"
+                CornerRadius="10" />
 
         <StackPanel Grid.Column="1" VerticalAlignment="Center">
 
             <Border ClipToBounds="True">
-                <Border Height="16" Width="650"  HorizontalAlignment="Left" Name="border1" Margin="-200,0">
+                <Border Name="border1"
+                        Width="650"
+                        Height="16"
+                        Margin="-200,0"
+                        HorizontalAlignment="Left">
                     <Border.Background>
                         <LinearGradientBrush StartPoint="0,0.5" EndPoint="1,0.5">
-                            <GradientStop Color="#DDD" Offset="0" />
-                            <GradientStop Color="#F7F9FA" Offset="0" />
-                            <GradientStop Color="#DDD" Offset="1" />
+                            <GradientStop Offset="0" Color="#DDD" />
+                            <GradientStop Offset="0" Color="#F7F9FA" />
+                            <GradientStop Offset="1" Color="#DDD" />
                         </LinearGradientBrush>
                     </Border.Background>
                 </Border>
             </Border>
             <Border ClipToBounds="True">
-                <Border Height="16"  Margin="-200,6" Name="border2">
+                <Border Name="border2"
+                        Height="16"
+                        Margin="-200,6">
                     <Border.Background>
                         <LinearGradientBrush StartPoint="0,0.5" EndPoint="1,0.5">
-                            <GradientStop Color="#DDD" Offset="0" />
-                            <GradientStop Color="#F7F9FA" Offset="0" />
-                            <GradientStop Color="#DDD" Offset="1" />
+                            <GradientStop Offset="0" Color="#DDD" />
+                            <GradientStop Offset="0" Color="#F7F9FA" />
+                            <GradientStop Offset="1" Color="#DDD" />
                         </LinearGradientBrush>
                     </Border.Background>
                 </Border>
             </Border>
             <Border ClipToBounds="True">
-                <Border Height="16" Width="480" Margin="-200,0" HorizontalAlignment="Left" Name="border3">
+                <Border Name="border3"
+                        Width="480"
+                        Height="16"
+                        Margin="-200,0"
+                        HorizontalAlignment="Left">
                     <Border.Background>
                         <LinearGradientBrush StartPoint="0,0.5" EndPoint="1,0.5">
-                            <GradientStop Color="#DDD" Offset="0" />
-                            <GradientStop Color="#F7F9FA" Offset="0" />
-                            <GradientStop Color="#DDD" Offset="1" />
+                            <GradientStop Offset="0" Color="#DDD" />
+                            <GradientStop Offset="0" Color="#F7F9FA" />
+                            <GradientStop Offset="1" Color="#DDD" />
                         </LinearGradientBrush>
                     </Border.Background>
                 </Border>
