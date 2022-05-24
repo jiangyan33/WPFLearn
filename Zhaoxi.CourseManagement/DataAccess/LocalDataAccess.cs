@@ -68,7 +68,7 @@ namespace Zhaoxi.CourseManagement.DataAccess
             {
                 return false;
             }
-        }
+        }  
 
         public UserEntity CheckUserInfo(string userName, string pwd)
         {

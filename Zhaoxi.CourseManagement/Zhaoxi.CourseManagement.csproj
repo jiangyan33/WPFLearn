@@ -107,6 +107,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Common\CommandBase.cs" />
+    <Compile Include="Common\CourseDataTemplateSelector.cs" />
     <Compile Include="Common\GlobalValues.cs" />
     <Compile Include="Common\MD5Provider.cs" />
     <Compile Include="Common\NotifyBase.cs" />

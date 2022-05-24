@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using Zhaoxi.CourseManagement.Common;
 using Zhaoxi.CourseManagement.DataAccess;
 using Zhaoxi.CourseManagement.Model;
@@ -86,8 +87,23 @@ namespace Zhaoxi.CourseManagement.ViewModel
         private void InitCourseList()
         {
             CourseModels = new ObservableCollection<CourseModel>();
-            courseModelAll = LocalDataAccess.GetInstance().GetCourses();
-            foreach (var item in courseModelAll) CourseModels.Add(item);
+
+            for (var i = 0; i < 10; i++)
+            {
+                CourseModels.Add(new CourseModel { IsShowSkeleton = true });
+            }
+
+            Task.Run(new Action(async () =>
+            {
+                courseModelAll = LocalDataAccess.GetInstance().GetCourses();
+                await Task.Delay(4000);
+
+                Application.Current.Dispatcher.Invoke(new Action(() =>
+                {
+                    CourseModels.Clear();
+                    foreach (var item in courseModelAll) CourseModels.Add(item);
+                }));
+            }));
         }
     }
 }
