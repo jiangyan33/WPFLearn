@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.2.32516.85
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32510.428
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZhaoXi.Controls", "ZhaoXi.Controls\ZhaoXi.Controls.csproj", "{441C416B-8464-4066-9EED-5BD15EF7070E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zhaoxi.CourseManagement", "Zhaoxi.CourseManagement\Zhaoxi.CourseManagement.csproj", "{5DFB94D6-D662-42C7-A67A-A5A65736169A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFTest", "WPFTest\WPFTest.csproj", "{38256539-33CA-4FDE-85D5-219408CAF6ED}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{5DFB94D6-D662-42C7-A67A-A5A65736169A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5DFB94D6-D662-42C7-A67A-A5A65736169A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5DFB94D6-D662-42C7-A67A-A5A65736169A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{38256539-33CA-4FDE-85D5-219408CAF6ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38256539-33CA-4FDE-85D5-219408CAF6ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38256539-33CA-4FDE-85D5-219408CAF6ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38256539-33CA-4FDE-85D5-219408CAF6ED}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

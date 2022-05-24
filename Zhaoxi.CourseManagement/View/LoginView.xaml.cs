@@ -24,6 +24,8 @@ namespace Zhaoxi.CourseManagement.View
         {
             InitializeComponent();
             this.DataContext = new LoginViewModel();
+            //nameof(Window.FontWeight)
+            //this.window.Style= 
         }
 
         private void WindowMove_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)

@@ -17,7 +17,11 @@
         WindowStartupLocation="CenterScreen"
         WindowStyle="None"
         mc:Ignorable="d">
-    <!--  ResizeMode="NoResize" 靠边不自动放大  -->
+    <!--
+        ResizeMode="NoResize" 无法调整窗口的大小，标题栏不显示最大化和最小化窗口
+        WindowStyle="None" 仅工作区可用，不显示标题栏和边框，如果这样设置Title属性就没用了
+        登录窗口的宽高被固定死，无法改变高度
+    -->
     <Window.Resources>
         <ResourceDictionary Source="../Assets/Styles/DefaultStyle.xaml">
             <ResourceDictionary.MergedDictionaries>
@@ -273,14 +277,19 @@
         </Border.Effect>
         <Grid>
             <Grid.RowDefinitions>
-                <!--  整体高度去掉60之后，占比1.8和3  -->
+                <!--  整体高度去掉60之后，占比1.8和3 固定长度，剩下的按照比例划分  -->
                 <RowDefinition Height="2*" />
                 <RowDefinition Height="3*" />
                 <RowDefinition Height="100" />
             </Grid.RowDefinitions>
+            <!--  圆角可以设置其中两个，设置左上，右上  -->
             <Border Background="#FF0079FF"
                     CornerRadius="10,10,0,0"
                     MouseLeftButtonDown="WindowMove_MouseLeftButtonDown" />
+            <!--
+                设置按钮的位置，点击执行的cmd和对应的参数，这个比事件好，可以任意的定义参数，按钮的内容可以使用字体图标
+                绑定命令使用{Bingding} 静态样式使用StaticResource
+            -->
             <Button HorizontalAlignment="Right"
                     VerticalAlignment="Top"
                     Command="{Binding CloseWindowCommand}"

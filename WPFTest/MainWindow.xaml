@@ -1,0 +1,68 @@
+﻿<Window x:Class="WPFTest.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:WPFTest"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        Title="MainWindow"
+        Width="800"
+        Height="450"
+        Background="{x:Null}"
+        FontFamily="微软雅黑"
+        FontWeight="ExtraLight"
+        ResizeMode="NoResize"
+        ShowInTaskbar="True"
+        WindowStartupLocation="CenterScreen"
+        mc:Ignorable="d">
+
+    <!--  border 中的CornerRadius属性是作用在内容上面的  -->
+    <Border Margin="5"
+            Background="White"
+            CornerRadius="5">
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100" />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+
+            <Border Grid.ColumnSpan="2"
+                    Margin="15,10"
+                    Background="Pink" />
+
+            <Border Grid.Row="1"
+                    Margin="30"
+                    Background="Wheat"
+                    CornerRadius="50">
+                <Border.Effect>
+                    <!--  在边框四周画阴影 BlurRadius阴影模糊效果的半径（越大越模糊）  阴影的方向（Direction 0-360度），Opacity 透明度（0-1，0没有阴影） shadowDepth(通常设置为0，阴影为4周)  -->
+                    <DropShadowEffect BlurRadius="10"
+                                      Direction="0"
+                                      Opacity="1"
+                                      ShadowDepth="0"
+                                      Color="Green" />
+                </Border.Effect>
+
+                <TextBlock HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           FontSize="20"
+                           Text="HelloWorld" />
+            </Border>
+            <Border Grid.Row="1"
+                    Grid.Column="1"
+                    Margin="30"
+                    Background="Wheat" />
+
+            <Border Grid.Row="2"
+                    Grid.Column="1"
+                    Margin="30"
+                    Background="Wheat" />
+        </Grid>
+    </Border>
+</Window>
