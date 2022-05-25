@@ -23,11 +23,14 @@
         登录窗口的宽高被固定死，无法改变高度
     -->
     <Window.Resources>
-        <ResourceDictionary Source="../Assets/Styles/DefaultStyle.xaml">
+        <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
+                <!--  合并使用外部的资源字典文件  -->
+                <ResourceDictionary Source="../Assets/Styles/DefaultStyle.xaml" />
                 <ResourceDictionary>
                     <!--  登录按钮  -->
                     <ControlTemplate x:Key="LoginButtonTemplate" TargetType="Button">
+                        <!--  在外层border设置一个背景颜色，内层border的背景颜色开始隐藏 当鼠标经过的时候显示出来 鼠标经过的背景颜色为#22FFFFFF  -->
                         <Border Background="#FF0079FF" CornerRadius="5">
                             <Grid>
                                 <Border Name="back"
@@ -297,6 +300,7 @@
                     Content="&#xe7fc;"
                     Style="{StaticResource WindowControlButtonStyle}" />
             <StackPanel Margin="0,0,0,30" VerticalAlignment="Bottom">
+                <!--  这个我也不知道为什么要在里面套一个border，内部的border才装图片，一个图标一个Logo可以使用StackPanel进行布局  -->
                 <Border Width="90"
                         Height="90"
                         Margin="0,0,0,20"
@@ -326,6 +330,7 @@
                     <RowDefinition />
                     <RowDefinition Height="Auto" MinHeight="23" />
                 </Grid.RowDefinitions>
+                <!--  文本框的值绑定到ViewModel中的属性 当属性值变更的时候触发更改，绑定键盘上的Enter键  -->
                 <TextBox Name="textUserName"
                          Height="42"
                          FontSize="16"
@@ -338,6 +343,7 @@
                                     CommandParameter="{Binding ElementName=window}" />
                     </TextBox.InputBindings>
                 </TextBox>
+                <!--  密码处理需要增加一个PasswordBox附加类，具体的需要再看视频讲解  -->
                 <PasswordBox Grid.Row="1"
                              Height="42"
                              common:PasswordHelper.Attach="True"
@@ -370,7 +376,6 @@
                         Template="{StaticResource LoginButtonTemplate}" />
                 <TextBlock Grid.Row="4"
                            HorizontalAlignment="Left"
-                           FontFamily="../Assets/Fonts/#iconfont"
                            FontSize="13"
                            Foreground="Red"
                            LineHeight="22"
@@ -403,6 +408,7 @@
                                Text="OR" />
                 </Grid>
 
+                <!--  列均分表格布局  -->
                 <UniformGrid Grid.Row="1" Columns="5">
                     <UniformGrid.Resources>
                         <Style TargetType="TextBlock">
@@ -429,6 +435,7 @@
                     Grid.RowSpan="2"
                     Background="Transparent"
                     Visibility="{Binding ShowProgress}">
+                <!--  IsIndeterminate 进度条显示一般的连续进度反馈  -->
                 <ProgressBar Height="3"
                              VerticalAlignment="Top"
                              Background="Transparent"

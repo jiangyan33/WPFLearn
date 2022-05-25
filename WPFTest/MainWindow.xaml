@@ -15,6 +15,18 @@
         WindowStartupLocation="CenterScreen"
         mc:Ignorable="d">
 
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="./Assets/Styles/DefaultStyle.xaml" />
+                <ResourceDictionary>
+                    <!--  定义画刷  -->
+                    <SolidColorBrush x:Key="ButtonBase" Color="Red" />
+                </ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
     <!--  border 中的CornerRadius属性是作用在内容上面的  -->
     <Border Margin="5"
             Background="White"
@@ -58,6 +70,12 @@
                     Grid.Column="1"
                     Margin="30"
                     Background="Wheat" />
+
+            <Button Grid.Row="2"
+                    Grid.Column="0"
+                    Background="{StaticResource ButtonBase}"
+                    Content="OK"
+                    Style="{StaticResource CommonButton}" />
 
             <Border Grid.Row="2"
                     Grid.Column="1"

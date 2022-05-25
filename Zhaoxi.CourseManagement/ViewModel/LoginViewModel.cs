@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using Zhaoxi.CourseManagement.Common;
@@ -10,8 +7,20 @@ using Zhaoxi.CourseManagement.Model;
 
 namespace Zhaoxi.CourseManagement.ViewModel
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class LoginViewModel : NotifyBase
     {
+
+        /**
+         * ViewModel使用
+         *  一个ViewModel对应一个View，如果UI层可以进行修改，Model需要继承NotifyBase,
+         *  其中包括Model,如果UI层可以进行修改，Model需要继承NotifyBase,在UI绑定的时候要设置触发事件(UpdateSourceTrigger=PropertyChanged)，在构造方法中实例化
+         *  CommandBase UI层触发的事件，在构造方法中进行实例化
+         * 
+         */
+
         public LoginModel LoginModel { get; set; } = new LoginModel();
 
         public CommandBase CloseWindowCommand { get; set; }
@@ -93,12 +102,9 @@ namespace Zhaoxi.CourseManagement.ViewModel
             {
                 try
                 {
-                    var user = LocalDataAccess.GetInstance().CheckUserInfo(LoginModel.UserName, LoginModel.Password);
-                    if (user == null)
-                    {
-                        throw new Exception("登录失败！用户名或密码错误！");
-                    }
-                    GlobalValues.UserInfo = user;
+                    DataAccess.DataEntity.UserEntity user = LocalDataAccess.GetInstance().CheckUserInfo(LoginModel.UserName, LoginModel.Password);
+                    GlobalValues.UserInfo = user ?? throw new Exception("登录失败！用户名或密码错误！");
+                    // 异步更新UI中的内容
                     Application.Current.Dispatcher.Invoke(new Action(() => (o as Window).DialogResult = true));
 
                 }
