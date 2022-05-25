@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using Zhaoxi.CourseManagement.Common;
 using Zhaoxi.CourseManagement.Model;
@@ -45,6 +40,7 @@ namespace Zhaoxi.CourseManagement.ViewModel
 
         private void DoNavChanged(object obj)
         {
+            if (MainContent?.GetType().Name == obj.ToString()) return;
             var type = Type.GetType("Zhaoxi.CourseManagement.View." + obj.ToString());
             var cti = type.GetConstructor(Type.EmptyTypes);
 
