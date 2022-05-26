@@ -1,11 +1,7 @@
-﻿using LiveCharts;
-using LiveCharts.Defaults;
-using LiveCharts.Wpf;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using Zhaoxi.CourseManagement.Common;
 using Zhaoxi.CourseManagement.DataAccess;
@@ -41,11 +37,10 @@ namespace Zhaoxi.CourseManagement.ViewModel
             InitCourseSeries();
         }
 
-        private Random random = new Random();
+        private readonly Random random = new Random();
 
         private bool taskSwitch = true;
-
-        List<Task> taskList = new List<Task>();
+        private readonly List<Task> taskList = new List<Task>();
 
         private void InitCourseSeries()
         {

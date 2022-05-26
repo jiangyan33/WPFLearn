@@ -112,6 +112,9 @@
     <Compile Include="Common\MD5Provider.cs" />
     <Compile Include="Common\NotifyBase.cs" />
     <Compile Include="Common\PasswordHelper.cs" />
+    <Compile Include="Controls\CartesianChart.xaml.cs">
+      <DependentUpon>CartesianChart.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Converter\BoolToArrowConverter.cs" />
     <Compile Include="Converter\BoolToBrushConverter.cs" />
     <Compile Include="Converter\GenderConverter.cs" />
@@ -144,6 +147,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Assets\Styles\DefaultStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\CartesianChart.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -212,6 +212,7 @@
                                                  Command="{Binding DataContext.TeacherFilterCommand,RelativeSource={RelativeSource AncestorType=UserControl,Mode=FindAncestor}}"
                                                  CommandParameter="{Binding CategoryName}" />-->
 
+                                    <!--  RadioButton使用group属性分组，只能选一个  -->
                                     <RadioButton Margin="5,0"
                                                  Click="RadioButton_Click"
                                                  Content="{Binding CategoryName}"

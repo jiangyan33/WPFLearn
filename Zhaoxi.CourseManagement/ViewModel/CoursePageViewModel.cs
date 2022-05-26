@@ -93,17 +93,15 @@ namespace Zhaoxi.CourseManagement.ViewModel
                 CourseModels.Add(new CourseModel { IsShowSkeleton = true });
             }
 
-            Task.Run(new Action(async () =>
-            {
-                courseModelAll = LocalDataAccess.GetInstance().GetCourses();
-                await Task.Delay(4000);
-
-                Application.Current.Dispatcher.Invoke(new Action(() =>
-                {
-                    CourseModels.Clear();
-                    foreach (var item in courseModelAll) CourseModels.Add(item);
-                }));
-            }));
+            Task.Run(new Action(() =>
+           {
+               courseModelAll = LocalDataAccess.GetInstance().GetCourses();
+               Application.Current.Dispatcher.Invoke(new Action(() =>
+               {
+                   CourseModels.Clear();
+                   foreach (var item in courseModelAll) CourseModels.Add(item);
+               }));
+           }));
         }
     }
 }

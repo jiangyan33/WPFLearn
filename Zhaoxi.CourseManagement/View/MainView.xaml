@@ -21,9 +21,10 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="../Assets/Styles/DefaultStyle.xaml" />
                 <ResourceDictionary>
-                    <!--  转换器  -->
+                    <!--  转换器需要在资源字典中定义才可以使用  -->
                     <converter:GenderConverter x:Key="genderConverter" />
 
+                    <!--  导航按钮控件模板，在外层有一个border，背景透明，使用触发器当被选中时增加border的背景  -->
                     <Style x:Key="NavButtonStyle" TargetType="RadioButton">
                         <Setter Property="Foreground" Value="White" />
                         <Setter Property="Template">
@@ -111,7 +112,7 @@
                                          Storyboard.TargetProperty="X"
                                          Duration="0:0:0.1" />
                     </Storyboard>
-
+                    <!--  一个属性绑定到两个控件中  -->
                     <ControlTemplate x:Key="GenderRadioButtonTemplate" TargetType="RadioButton">
                         <Grid>
                             <Grid.ColumnDefinitions>
@@ -147,6 +148,7 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Window.Resources>
+    <!--  通过触发器实现点击按钮执行故事板动画  -->
     <Window.Triggers>
         <EventTrigger RoutedEvent="Button.Click" SourceName="btnUserInfo">
             <BeginStoryboard Storyboard="{StaticResource UserInfoStoryboard}" />
@@ -275,6 +277,7 @@
                                       Color="Gray" />
                 </Border.Effect>
                 <Border.RenderTransform>
+                    <!--  将坐标系统移动一定的距离（平移）  -->
                     <TranslateTransform x:Name="translateTransform" X="250" />
                 </Border.RenderTransform>
                 <Grid>
@@ -336,6 +339,9 @@
                             <RadioButton Content="男"
                                          IsChecked="{Binding UserInfo.Gender, Converter={StaticResource genderConverter}, ConverterParameter=1}"
                                          Template="{StaticResource GenderRadioButtonTemplate}" />
+                            <!--<RadioButton Content="男"
+                                         IsChecked="True"
+                                         Template="{StaticResource GenderRadioButtonTemplate}" />-->
                             <RadioButton Content="女"
                                          IsChecked="{Binding UserInfo.Gender, Converter={StaticResource genderConverter}, ConverterParameter=2}"
                                          Template="{StaticResource GenderRadioButtonTemplate}" />

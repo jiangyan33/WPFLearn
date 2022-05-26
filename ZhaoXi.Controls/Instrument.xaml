@@ -15,7 +15,7 @@
                 Width="{Binding Width, ElementName=backEllipse}"
                 Height="{Binding Height, ElementName=backEllipse}" />
 
-        <!--  画圆弧  -->
+        <!--  画圆弧    RotateTransform旋转变换，围绕设置的中心点[0.5,0.5]进行旋转变换  -->
         <Path Name="circle"
               Width="{Binding Width, ElementName=backEllipse}"
               Height="{Binding Height, ElementName=backEllipse}"
@@ -28,7 +28,6 @@
             <Path.RenderTransform>
                 <RotateTransform Angle="-45" />
             </Path.RenderTransform>
-
         </Path>
 
         <!--  画三角形  -->
@@ -49,7 +48,7 @@
                 CornerRadius="10">
             <Border.Background>
                 <RadialGradientBrush>
-                    <!--  从中心向四周渐变  -->
+                    <!--  GradientOrigin渐变的起始点(默认值为[0.5,0.5])，和线性渐变一样找到一个点（起点[0,0]，终点[1,1]）  从中心向四周渐变  从开始点以环形的方式向四周放射  -->
                     <GradientStop Offset="0.538" Color="White" />
                     <GradientStop Offset="1" Color="#FF97B5BD" />
                 </RadialGradientBrush>

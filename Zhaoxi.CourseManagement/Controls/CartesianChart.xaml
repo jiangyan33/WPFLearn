@@ -1,0 +1,100 @@
+﻿<UserControl x:Class="Zhaoxi.CourseManagement.Controls.CartesianChart"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:Zhaoxi.CourseManagement.Controls"
+             xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+             xmlns:lvcs="clr-namespace:LiveCharts;assembly=LiveCharts"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             d:DesignHeight="160"
+             d:DesignWidth="250"
+             mc:Ignorable="d">
+
+    <Border Margin="10"
+            Background="White"
+            CornerRadius="5">
+        <Border.Effect>
+            <!--  在目标周围绘画投影效果  BlurRadius阴影模糊效果的半径，Direction投影的方向  -->
+            <DropShadowEffect BlurRadius="105"
+                              Direction="270"
+                              Opacity="0.4"
+                              ShadowDepth="10"
+                              Color="#F2F2F2" />
+        </Border.Effect>
+        <Grid>
+            <lvc:CartesianChart Margin="0,0,0,45">
+                <lvc:CartesianChart.Series>
+                    <!--
+                        设置图标样式
+                        Fill                图标下面的颜色
+                        PointGeometrySize   每一个点的大小，0为没有点
+                        Stroke              上方线条的颜色
+                        Values              值列表
+                    -->
+                    <lvc:LineSeries Name="lineSeries"
+                                    Fill="#FFF2DE"
+                                    PointGeometrySize="0"
+                                    Stroke="#FECC71"
+                                    Values="1,2,3,40,5,6,7" />
+                </lvc:CartesianChart.Series>
+                <!--  隐藏X和Y轴的数据  -->
+                <lvc:CartesianChart.AxisX>
+                    <lvc:Axis ShowLabels="False" />
+                </lvc:CartesianChart.AxisX>
+
+                <lvc:CartesianChart.AxisY>
+                    <lvc:Axis MaxValue="100"
+                              MinValue="0"
+                              ShowLabels="False" />
+                </lvc:CartesianChart.AxisY>
+            </lvc:CartesianChart>
+            <StackPanel Margin="15"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Orientation="Horizontal">
+                <Border Width="20"
+                        Height="20"
+                        Background="#EDFAF0"
+                        CornerRadius="5">
+                    <TextBlock HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               FontFamily="../Assets/Fonts/#iconfont"
+                               Foreground="#7ADA95"
+                               Text="&#xe62a;" />
+                </Border>
+                <TextBlock Name="textBlockValueOne"
+                           Margin="5,0,0,0"
+                           VerticalAlignment="Center"
+                           Foreground="#7ADA95"
+                           Text="32%" />
+            </StackPanel>
+            <StackPanel Margin="15,3"
+                        VerticalAlignment="Bottom"
+                        Orientation="Horizontal">
+                <Border Width="36"
+                        Height="36"
+                        Background="#FFF5E9"
+                        CornerRadius="10">
+                    <TextBlock Name="textBlockIcon"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               FontFamily="../Assets/Fonts/#iconfont"
+                               FontSize="20"
+                               Foreground="#FFBC57"
+                               Text="&#xe609;" />
+                </Border>
+                <StackPanel Margin="15,0,0,0">
+                    <TextBlock Name="textBlockKey"
+                               FontSize="12"
+                               Foreground="#3F4C5D"
+                               Text="CPU使用情况" />
+                    <TextBlock Name="textBlockValueTwo"
+                               FontSize="16"
+                               FontWeight="Bold"
+                               Foreground="#3F4C5D"
+                               Text="32%" />
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+    </Border>
+</UserControl>
