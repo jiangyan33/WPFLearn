@@ -20,3 +20,6 @@ dotnet_diagnostic.IDE0028.severity = none
 
 # IDE0008: 使用显式类型
 dotnet_diagnostic.IDE0008.severity = none
+
+# Default severity for all analyzer diagnostics
+dotnet_analyzer_diagnostic.severity = none

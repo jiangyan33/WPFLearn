@@ -24,7 +24,7 @@
             </Grid>
             <ControlTemplate.Triggers>
                 <Trigger Property="IsChecked" Value="True">
-                    <Setter TargetName="back" Property="Background" Value="Orange" />
+                    <Setter TargetName="back" Property="Background" Value="Orange " />
                 </Trigger>
             </ControlTemplate.Triggers>
         </ControlTemplate>

@@ -3,9 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:Zhaoxi.CourseManagement"
              ShutdownMode="OnExplicitShutdown">
-    <!--ShutdownMode=OnExplicitShutdown 程序手动调用Shutdown方法时才会关闭应用程序-->
+    <!--  ShutdownMode=OnExplicitShutdown 程序手动调用Shutdown方法时才会关闭应用程序  -->
 
-    <Application.Resources>
-
-    </Application.Resources>
+    <Application.Resources />
 </Application>
