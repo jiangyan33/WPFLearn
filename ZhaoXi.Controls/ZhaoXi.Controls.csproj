@@ -45,6 +45,9 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CircularProgressBar.xaml.cs">
+      <DependentUpon>CircularProgressBar.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Instrument.xaml.cs">
       <DependentUpon>Instrument.xaml</DependentUpon>
     </Compile>
@@ -54,6 +57,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="CircularProgressBar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Instrument.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

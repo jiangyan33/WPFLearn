@@ -4,9 +4,191 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:local="clr-namespace:ZhaoXi.Industrial"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        Title="MainWindow"
-        Width="800"
-        Height="450"
+        Title="朝夕科技节能管理控制系统"
+        Width="1300"
+        Height="750"
+        AllowsTransparency="True"
+        FontFamily="微软雅黑"
+        FontWeight="ExtraLight"
+        MouseMove="Window_MouseMove"
+        ResizeMode="CanResizeWithGrip"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
         mc:Ignorable="d">
-    <Grid />
+    <!--  ResizeMode="CanResizeWithGrip" 窗口右下角添加"调整手柄大小" +CanResize  -->
+
+    <Window.Resources>
+
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Assets/Styles/ButtonStyles.xaml" />
+                <ResourceDictionary>
+                    <Style x:Key="NavTabButtonStyle" TargetType="RadioButton">
+                        <Setter Property="FontSize" Value="15" />
+                        <Setter Property="Foreground" Value="#DDD" />
+                        <Setter Property="Padding" Value="10,5" />
+                        <Setter Property="Margin" Value="5,0" />
+                        <Setter Property="Background" Value="Transparent" />
+                        <Setter Property="Command" Value="{Binding TabChangedCommand}" />
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="RadioButton">
+                                    <Border Background="{TemplateBinding Background}" CornerRadius="5,5,0,0">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto" />
+                                                <ColumnDefinition />
+                                            </Grid.ColumnDefinitions>
+
+                                            <TextBlock Margin="10,0,0,0"
+                                                       HorizontalAlignment="Center"
+                                                       VerticalAlignment="Center"
+                                                       FontFamily="Assets/Fonts/#iconfont"
+                                                       FontSize="14"
+                                                       Text="{TemplateBinding Tag}" />
+
+                                            <ContentPresenter Grid.Column="1"
+                                                              Margin="{TemplateBinding Padding}"
+                                                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                                        </Grid>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                        <Style.Triggers>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter Property="Foreground" Value="White" />
+                                <Setter Property="Background" Value="#FF6800" />
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+
+
+    </Window.Resources>
+    <Grid>
+        <Grid.Background>
+            <!--
+                径向渐变（从中心点向四周渐变），Center(最外面圆的中心)，GradientOrigin（渐变开始的二维点的位置）
+                RadiusX 最外边圆的水平半径 RadiusY 最外边圆的垂直半径
+                从中心点到 0.162颜色从#FFA4B3D3到#FF96AAD4
+                从0.162到0.952颜色从#FF96AAD4到#FF302C5D
+                从0.952到1颜色都是#FF302C5D
+            -->
+            <RadialGradientBrush Center="0.5,0.7" GradientOrigin="0.5,0.7" RadiusX="0.8" RadiusY="0.8">
+                <GradientStop Color="#FFA4B3D3" />
+                <GradientStop Offset="0.162" Color="#FF96AAD4" />
+                <GradientStop Offset="0.952" Color="#FF302C5D" />
+            </RadialGradientBrush>
+        </Grid.Background>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <Grid>
+            <!--  图标  -->
+            <Border Width="55"
+                    Height="50"
+                    Margin="10,0,20,0"
+                    HorizontalAlignment="Left">
+                <Border.Background>
+                    <ImageBrush ImageSource="Assets/Images/Logo.png" />
+                </Border.Background>
+            </Border>
+
+            <!--  导航  -->
+            <StackPanel VerticalAlignment="Center">
+                <TextBlock Margin="82,0,0,0"
+                           FontSize="25"
+                           Foreground="White"
+                           Text="朝夕科技节能管理控制系统" />
+
+                <Border Height="45"
+                        Background="Transparent"
+                        BorderBrush="#FF6800"
+                        BorderThickness="0,0,0,1">
+
+                    <StackPanel Margin="70,0,0,0"
+                                VerticalAlignment="Bottom"
+                                Orientation="Horizontal">
+                        <RadioButton CommandParameter="SystemMonitor"
+                                     Content="系统监控"
+                                     IsChecked="True"
+                                     Style="{StaticResource NavTabButtonStyle}"
+                                     Tag="&#xe601;" />
+                        <RadioButton CommandParameter="RealTimeCurve"
+                                     Content="实时曲线"
+                                     Style="{StaticResource NavTabButtonStyle}"
+                                     Tag="&#xe604;" />
+                        <RadioButton Content="历史曲线"
+                                     Style="{StaticResource NavTabButtonStyle}"
+                                     Tag="&#xe75c;" />
+                        <RadioButton Content="控制策略"
+                                     Style="{StaticResource NavTabButtonStyle}"
+                                     Tag="&#xe684;" />
+                        <RadioButton Content="系统操作"
+                                     Style="{StaticResource NavTabButtonStyle}"
+                                     Tag="&#xe600;" />
+                        <RadioButton Content="报警管理"
+                                     Style="{StaticResource NavTabButtonStyle}"
+                                     Tag="&#xe62e;" />
+                        <RadioButton Content="报表管理"
+                                     Style="{StaticResource NavTabButtonStyle}"
+                                     Tag="&#xe602;" />
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+
+            <!--  窗口控制  -->
+            <StackPanel HorizontalAlignment="Right"
+                        VerticalAlignment="Top"
+                        Orientation="Horizontal">
+                <Button Name="btnMin"
+                        Click="btnMin_Click"
+                        Content="&#xe6bf;"
+                        FontSize="14"
+                        Style="{StaticResource IconButtonStyle}" />
+                <Button Name="btnMax"
+                        Click="btnMax_Click"
+                        Content="&#xe63e;"
+                        FontSize="10"
+                        Style="{StaticResource IconButtonStyle}" />
+                <Button Name="btnClose"
+                        Click="btnClose_Click"
+                        Content="&#xe625;"
+                        Style="{StaticResource IconButtonStyle}" />
+            </StackPanel>
+
+            <StackPanel Margin="20,15"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Bottom"
+                        Orientation="Horizontal">
+
+                <TextBlock Margin="10,0"
+                           VerticalAlignment="Center"
+                           Foreground="White"
+                           Text="Jovan.Zhaoxi" />
+                <Border Width="30"
+                        Height="30"
+                        CornerRadius="15">
+                    <Border.Effect>
+                        <DropShadowEffect BlurRadius="5"
+                                          Direction="0"
+                                          Opacity="0.4"
+                                          ShadowDepth="0"
+                                          Color="White" />
+                    </Border.Effect>
+                    <Border.Background>
+                        <ImageBrush ImageSource="Assets/Images/avatar.png" />
+                    </Border.Background>
+                </Border>
+            </StackPanel>
+        </Grid>
+        <ContentControl Grid.Row="1" Content="{Binding MainContent}" />
+    </Grid>
 </Window>

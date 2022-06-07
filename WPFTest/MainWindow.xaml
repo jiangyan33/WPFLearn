@@ -79,8 +79,19 @@
 
             <Border Grid.Row="2"
                     Grid.Column="1"
-                    Margin="30"
-                    Background="Wheat" />
+                    Margin="0"
+                    Background="Wheat">
+                <!--
+                    // M{0} 3A{1} {1} 0 {4} 1 {2} {3}
+                    // M{0} 3 几何图形起点坐标
+                    // 3A{1} {1} 圆弧的x轴和y轴的半径
+                    // 0 {4} 1  【0表示椭圆的旋转，0 不旋转】  【{4}表示设置圆弧的大小，如果圆弧的角度应为180或者更大，设置为1，否则为0】 【1 正方向绘制为1，否则为0】
+                    //{2} {3} 结束点坐标
+                -->
+                <Path Data="M50,10 A 45,45 0 1 1 40,80 "
+                      Stroke="Green"
+                      StrokeThickness="2" />
+            </Border>
         </Grid>
     </Border>
 </Window>

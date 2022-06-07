@@ -1,4 +1,6 @@
-﻿using System;
+﻿using LiveCharts;
+using LiveCharts.Defaults;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -77,9 +79,14 @@ namespace ZhaoXi.Industrial.Model
 
                     ValueStateChanged?.Invoke(state, msg + "。当前值：" + value.ToString(), ValueId);
                 }
+                if (Values.Count > 50) Values.RemoveAt(0);
+
+                Values.Add(new ObservableValue(value));
             }
         }
 
         public string ValueDesc { get; set; }
+
+        public ChartValues<ObservableValue> Values { get; set; } = new ChartValues<ObservableValue> { new ObservableValue(0) };
     }
 }

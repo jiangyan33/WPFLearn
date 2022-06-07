@@ -1,7 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace Zhaoxi.CourseManagement.Common
+namespace ZhaoXi.Industrial.Base
 {
     public class CommandBase : ICommand
     {
@@ -9,7 +13,7 @@ namespace Zhaoxi.CourseManagement.Common
 
         public bool CanExecute(object parameter)
         {
-            return DoCanExecute?.Invoke(parameter) == true;
+            return true;
         }
 
         public void Execute(object parameter)
@@ -18,18 +22,6 @@ namespace Zhaoxi.CourseManagement.Common
         }
 
         public Action<object> DoExecute { get; set; }
-
-        public Func<object, bool> DoCanExecute { get; set; }
-
-        public void RaiseCanExecuteChanged()
-        {
-            CanExecuteChanged?.Invoke(this, new EventArgs());
-        }
-
-        public CommandBase()
-        {
-
-        }
 
         public CommandBase(Action<object> action)
         {
