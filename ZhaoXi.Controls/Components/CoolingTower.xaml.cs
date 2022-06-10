@@ -12,28 +12,17 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using WPFTest.One;
 
-namespace WPFTest
+namespace ZhaoXi.Controls.Components
 {
     /// <summary>
-    /// MainWindow.xaml 的交互逻辑
+    /// CoolingTower.xaml 的交互逻辑
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class CoolingTower : UserControl
     {
-        public MainWindow()
+        public CoolingTower()
         {
             InitializeComponent();
-        }
-
-        private void btnOne_Click(object sender, RoutedEventArgs e)
-        {
-            new Window1().ShowDialog();
-        }
-
-        private void btnTwo_Click(object sender, RoutedEventArgs e)
-        {
-            new Window2().ShowDialog();
         }
     }
 }

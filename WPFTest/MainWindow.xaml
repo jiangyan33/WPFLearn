@@ -14,84 +14,111 @@
         ShowInTaskbar="True"
         WindowStartupLocation="CenterScreen"
         mc:Ignorable="d">
-
-
     <Window.Resources>
-        <ResourceDictionary>
-            <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="./Assets/Styles/DefaultStyle.xaml" />
-                <ResourceDictionary>
-                    <!--  定义画刷  -->
-                    <SolidColorBrush x:Key="ButtonBase" Color="Red" />
-                </ResourceDictionary>
-            </ResourceDictionary.MergedDictionaries>
-        </ResourceDictionary>
+        <Style x:Key="FocusVisual">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Rectangle Margin="2"
+                                   SnapsToDevicePixels="true"
+                                   Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"
+                                   StrokeDashArray="1 2"
+                                   StrokeThickness="1" />
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <SolidColorBrush x:Key="Button.Static.Background" Color="#FFDDDDDD" />
+        <SolidColorBrush x:Key="Button.Static.Border" Color="#FF707070" />
+        <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#FFBEE6FD" />
+        <SolidColorBrush x:Key="Button.MouseOver.Border" Color="#FF3C7FB1" />
+        <SolidColorBrush x:Key="Button.Pressed.Background" Color="#FFC4E5F6" />
+        <SolidColorBrush x:Key="Button.Pressed.Border" Color="#FF2C628B" />
+        <SolidColorBrush x:Key="Button.Disabled.Background" Color="#FFF4F4F4" />
+        <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FFADB2B5" />
+        <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#FF838383" />
+        <Style x:Key="ButtonBase" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}" />
+            <Setter Property="Background" Value="{StaticResource Button.Static.Background}" />
+            <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}" />
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+            <Setter Property="Padding" Value="1" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border"
+                                Margin="10"
+                                Padding="30,5"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Background="LightGray"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="0"
+                                CornerRadius="5"
+                                SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter"
+                                              Margin="{TemplateBinding Padding}"
+                                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                              Focusable="False"
+                                              RecognizesAccessKey="True"
+                                              SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter TargetName="border" Property="BorderBrush" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" />
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter TargetName="border" Property="Background" Value="{StaticResource Button.MouseOver.Background}" />
+                                <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource Button.MouseOver.Border}" />
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter TargetName="border" Property="Background" Value="{StaticResource Button.Pressed.Background}" />
+                                <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource Button.Pressed.Border}" />
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter TargetName="border" Property="Background" Value="{StaticResource Button.Disabled.Background}" />
+                                <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource Button.Disabled.Border}" />
+                                <Setter TargetName="contentPresenter" Property="TextElement.Foreground" Value="{StaticResource Button.Disabled.Foreground}" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </Window.Resources>
-    <!--  border 中的CornerRadius属性是作用在内容上面的  -->
-    <Border Margin="5"
-            Background="White"
-            CornerRadius="5">
 
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
 
-            <Grid.RowDefinitions>
-                <RowDefinition Height="100" />
-                <RowDefinition />
-                <RowDefinition />
-            </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
 
-            <Border Grid.ColumnSpan="2"
-                    Margin="15,10"
-                    Background="Pink" />
 
-            <Border Grid.Row="1"
-                    Margin="30"
-                    Background="Wheat"
-                    CornerRadius="50">
-                <Border.Effect>
-                    <!--  在边框四周画阴影 BlurRadius阴影模糊效果的半径（越大越模糊）  阴影的方向（Direction 0-360度），Opacity 透明度（0-1，0没有阴影） shadowDepth(通常设置为0，阴影为4周)  -->
-                    <DropShadowEffect BlurRadius="10"
-                                      Direction="0"
-                                      Opacity="1"
-                                      ShadowDepth="0"
-                                      Color="Green" />
-                </Border.Effect>
+        <Button Name="btnOne"
+                Click="btnOne_Click"
+                Content="测试One"
+                Style="{DynamicResource ButtonBase}" />
+        <Button Name="btnTwo"
+                Grid.Column="1"
+                Click="btnTwo_Click"
+                Content="旋转变换"
+                Style="{DynamicResource ButtonBase}" />
 
-                <TextBlock HorizontalAlignment="Center"
-                           VerticalAlignment="Center"
-                           FontSize="20"
-                           Text="HelloWorld" />
-            </Border>
-            <Border Grid.Row="1"
-                    Grid.Column="1"
-                    Margin="30"
-                    Background="Wheat" />
+    </Grid>
 
-            <Button Grid.Row="2"
-                    Grid.Column="0"
-                    Background="{StaticResource ButtonBase}"
-                    Content="OK"
-                    Style="{StaticResource CommonButton}" />
-
-            <Border Grid.Row="2"
-                    Grid.Column="1"
-                    Margin="0"
-                    Background="Wheat">
-                <!--
-                    // M{0} 3A{1} {1} 0 {4} 1 {2} {3}
-                    // M{0} 3 几何图形起点坐标
-                    // 3A{1} {1} 圆弧的x轴和y轴的半径
-                    // 0 {4} 1  【0表示椭圆的旋转，0 不旋转】  【{4}表示设置圆弧的大小，如果圆弧的角度应为180或者更大，设置为1，否则为0】 【1 正方向绘制为1，否则为0】
-                    //{2} {3} 结束点坐标
-                -->
-                <Path Data="M50,10 A 45,45 0 1 1 40,80 "
-                      Stroke="Green"
-                      StrokeThickness="2" />
-            </Border>
-        </Grid>
-    </Border>
 </Window>
