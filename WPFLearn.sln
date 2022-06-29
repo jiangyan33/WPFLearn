@@ -43,7 +43,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3.DAL", "3.DAL", "{63C25387
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.Common", "4.Common", "{4527BB49-EA8E-45DE-B1FC-0AF8C61EE074}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zhaoxi.SmartParking.Server.Start", "Server\Zhaoxi.SmartParking.Server.Start\Zhaoxi.SmartParking.Server.Start.csproj", "{95EB505A-5E92-49FF-BCB2-324FCC4210CD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zhaoxi.SmartParking.Server.Start", "Server\Zhaoxi.SmartParking.Server.Start\Zhaoxi.SmartParking.Server.Start.csproj", "{95EB505A-5E92-49FF-BCB2-324FCC4210CD}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zhaoxi.SmartParking.Server.EFCore", "Server\Zhaoxi.SmartParking.Server.EFCore\Zhaoxi.SmartParking.Server.EFCore.csproj", "{4F43EA1F-C980-40AC-9370-200DE273FEB8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zhaoxi.SmartParking.Server.Models", "Server\Zhaoxi.SmartParking.Server.Models\Zhaoxi.SmartParking.Server.Models.csproj", "{5C8CF0B8-2DCB-4E9C-92EE-57A6D8AEF26B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -75,6 +79,14 @@ Global
 		{95EB505A-5E92-49FF-BCB2-324FCC4210CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{95EB505A-5E92-49FF-BCB2-324FCC4210CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{95EB505A-5E92-49FF-BCB2-324FCC4210CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F43EA1F-C980-40AC-9370-200DE273FEB8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F43EA1F-C980-40AC-9370-200DE273FEB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F43EA1F-C980-40AC-9370-200DE273FEB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F43EA1F-C980-40AC-9370-200DE273FEB8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C8CF0B8-2DCB-4E9C-92EE-57A6D8AEF26B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C8CF0B8-2DCB-4E9C-92EE-57A6D8AEF26B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C8CF0B8-2DCB-4E9C-92EE-57A6D8AEF26B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C8CF0B8-2DCB-4E9C-92EE-57A6D8AEF26B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -91,6 +103,8 @@ Global
 		{63C25387-8847-4350-ADD8-6ACCD2794A65} = {F2746ACA-0404-427C-953E-562A6D2B263F}
 		{4527BB49-EA8E-45DE-B1FC-0AF8C61EE074} = {F2746ACA-0404-427C-953E-562A6D2B263F}
 		{95EB505A-5E92-49FF-BCB2-324FCC4210CD} = {BB37F148-906E-444D-8FC9-6B1D32B3467B}
+		{4F43EA1F-C980-40AC-9370-200DE273FEB8} = {63C25387-8847-4350-ADD8-6ACCD2794A65}
+		{5C8CF0B8-2DCB-4E9C-92EE-57A6D8AEF26B} = {4527BB49-EA8E-45DE-B1FC-0AF8C61EE074}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {26F84C85-5206-4B6A-9A9B-CAC4F3013435}
