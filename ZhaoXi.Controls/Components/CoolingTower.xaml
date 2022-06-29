@@ -54,8 +54,11 @@
             <Canvas Width="205"
                     Height="245"
                     Margin="5">
+
+                <!--  多边形  -->
                 <Polygon Fill="#EEE" Points="0,65 40,10 205,10 180,65" />
 
+                <!--  环形路径  -->
                 <Path Canvas.Left="45"
                       Canvas.Top="15"
                       Data="M0 0 A60 15 0 0 0 120 0 L120 25 A60 15 0 0 1 0 25">
@@ -68,6 +71,7 @@
                     </Path.Fill>
                 </Path>
 
+                <!--  椭圆  -->
                 <Ellipse Canvas.Left="45"
                          Width="120"
                          Height="30"
@@ -82,6 +86,7 @@
                             <TransformGroup>
                                 <!--  RotateTransform 旋转变换，相对于中心点旋转50度  -->
                                 <RotateTransform x:Name="rt" Angle="50" />
+                                <!--  缩放 基于中心点，X方向不变，Y轴缩放到0.25(也就是变为原来的4分之1)  -->
                                 <ScaleTransform ScaleY="0.25" />
                             </TransformGroup>
                         </Viewbox.RenderTransform>
