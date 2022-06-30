@@ -35,5 +35,10 @@ namespace WPFTest
         {
             new Window2().ShowDialog();
         }
+
+        private void btnThree_Click(object sender, RoutedEventArgs e)
+        {
+            new Window3().ShowDialog();
+        }
     }
 }

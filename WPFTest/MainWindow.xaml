@@ -119,6 +119,12 @@
                 Content="旋转变换"
                 Style="{DynamicResource ButtonBase}" />
 
+        <Button Name="btnThree"
+                Grid.Column="2"
+                Click="btnThree_Click"
+                Content="形状"
+                Style="{DynamicResource ButtonBase}" />
+
     </Grid>
 
 </Window>
