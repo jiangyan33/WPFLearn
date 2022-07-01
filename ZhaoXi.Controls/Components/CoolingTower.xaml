@@ -15,6 +15,7 @@
                 <!--  正常运行状态  -->
                 <VisualState x:Name="RunState">
                     <Storyboard>
+                        <!--  风扇  -->
                         <DoubleAnimation RepeatBehavior="Forever"
                                          Storyboard.TargetName="rt"
                                          Storyboard.TargetProperty="Angle"
@@ -105,6 +106,10 @@
 
                         <Border.Background>
 
+                            <!--<DrawingBrush TileMode="Tile"
+                                          Viewport="1,0,25,1"
+                                          ViewportUnits="Absolute">-->
+                            <!--  Viewport设置基本块的位置（具体顶部和左侧的坐标）和大小（宽高）, ViewportUnits viewport值是否相对于输出区域的大小  -->
                             <DrawingBrush TileMode="Tile"
                                           Viewport="1,0,25,1"
                                           ViewportUnits="Absolute">
@@ -116,7 +121,8 @@
 
                                         <GeometryDrawing.Geometry>
                                             <PathGeometry>
-                                                <PathFigure>
+                                                <!--  路径几何图形 从(0,0)点到(10,0)画线,再到(10,10)画线 【关于线条的宽度这里不理解】  -->
+                                                <PathFigure StartPoint="0,0">
                                                     <LineSegment Point="10,0" />
                                                     <LineSegment Point="10,10" />
                                                 </PathFigure>

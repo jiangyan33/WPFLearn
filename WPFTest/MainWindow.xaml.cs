@@ -40,5 +40,15 @@ namespace WPFTest
         {
             new Window3().ShowDialog();
         }
+
+        private void btnFour_Click(object sender, RoutedEventArgs e)
+        {
+            new Window4().ShowDialog();
+        }
+
+        private void btnFive_Click(object sender, RoutedEventArgs e)
+        {
+            new Window5().ShowDialog();
+        }
     }
 }

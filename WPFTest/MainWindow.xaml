@@ -125,6 +125,20 @@
                 Content="形状"
                 Style="{DynamicResource ButtonBase}" />
 
+        <Button Name="btnFour"
+                Grid.Row="1"
+                Grid.Column="0"
+                Click="btnFour_Click"
+                Content="画刷"
+                Style="{DynamicResource ButtonBase}" />
+
+        <Button Name="btnFive"
+                Grid.Row="1"
+                Grid.Column="0"
+                Click="btnFive_Click"
+                Content="路径和几何图形"
+                Style="{DynamicResource ButtonBase}" />
+
     </Grid>
 
 </Window>

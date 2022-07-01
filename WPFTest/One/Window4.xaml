@@ -1,0 +1,56 @@
+﻿<Window x:Class="WPFTest.One.Window4"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:WPFTest.One"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        Title="Window4"
+        Width="800"
+        Height="450"
+        mc:Ignorable="d">
+    <Grid>
+        <Rectangle Width="200"
+                   Height="200"
+                   Stroke="Black"
+                   StrokeThickness="2">
+
+            <Rectangle.Fill>
+                <!--  2D绘图 绘制区域，包括形状、文本、视频、图像或者其他绘制项  -->
+
+                <!--  TileMode平铺模式  Viewport="0,0,0.25,0.25"（设置贴图的位置和大小【大小为0.25可以平铺4次】）  ViewportUnits=RelativeToBoundingBox（使用相对坐标）  -->
+                <!--<DrawingBrush TileMode="None"
+                              Viewport="0,0,0.25,0.25"
+                              ViewportUnits="RelativeToBoundingBox">-->
+                <DrawingBrush>
+
+
+
+                    <DrawingBrush.Drawing>
+                        <!--  使用指定的Brush和Pen绘制几何图形  -->
+                        <GeometryDrawing Brush="Yellow">
+                            <GeometryDrawing.Geometry>
+                                <!--  设置组合几何图形  -->
+                                <GeometryGroup>
+                                    <!--  矩形的位置和大小,这个地方不理解  -->
+                                    <RectangleGeometry Rect="50,25,25,25" />
+                                    <RectangleGeometry Rect="25,50,25,25" />
+                                </GeometryGroup>
+                            </GeometryDrawing.Geometry>
+
+                            <GeometryDrawing.Pen>
+                                <Pen Thickness="5">
+                                    <Pen.Brush>
+                                        <LinearGradientBrush>
+                                            <GradientStop Offset="0.0" Color="Blue" />
+                                            <GradientStop Offset="1.0" Color="Black" />
+                                        </LinearGradientBrush>
+                                    </Pen.Brush>
+                                </Pen>
+                            </GeometryDrawing.Pen>
+                        </GeometryDrawing>
+                    </DrawingBrush.Drawing>
+                </DrawingBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+    </Grid>
+</Window>

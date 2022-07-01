@@ -16,7 +16,7 @@
         </Grid.RowDefinitions>
 
         <!--  Stroke边框颜色 StrokeThickness边框厚度 Fill填充色  RadiusX 令矩形边角改为圆角的椭圆半径（以左上角为起点，椭圆半径X和Y）  -->
-        <Rectangle x:Name="rectangle"
+        <!--<Rectangle x:Name="rectangle"
                    Width="200"
                    Height="100"
                    Margin="0,5,0,0"
@@ -24,14 +24,42 @@
                    RadiusX="100"
                    RadiusY="50"
                    Stroke="Blue"
-                   StrokeThickness="2" />
+                   StrokeThickness="2" />-->
 
         <!--  Stretch 拉伸方式 默认拉伸Fill（最大模式填满），None 不拉伸(没有设置宽高时不显示)，Uniform(能够最大显示的一个圆) UniformToFill(填满整个空间)  -->
-        <Ellipse Grid.Row="1"
+        <!--<Ellipse Grid.Row="1"
                  Margin="5"
                  Fill="Yellow"
                  Stretch="UniformToFill"
-                 Stroke="Red" />
+                 Stroke="Red" />-->
+
+        <!--  有一些图形类空间 需要随着程序的放大，一起变大（拉伸或者缩小子元素）  （viewBox+Canvas），按钮一般不需要 。  -->
+
+
+        <TextBlock Text="The first row of a Grid" />
+
+        <Viewbox Grid.Row="1" HorizontalAlignment="Left">
+            <Canvas Grid.Row="1"
+                    Width="200"
+                    Height="150">
+                <Rectangle Canvas.Left="30"
+                           Canvas.Top="40"
+                           Width="100"
+                           Height="60"
+                           HorizontalAlignment="Left"
+                           Fill="Yellow"
+                           Stroke="Blue" />
+
+                <Ellipse Canvas.Left="10"
+                         Canvas.Top="50"
+                         Width="100"
+                         Height="50"
+                         HorizontalAlignment="Left"
+                         Fill="Yellow"
+                         Stroke="Blue" />
+            </Canvas>
+        </Viewbox>
+
 
     </Grid>
 

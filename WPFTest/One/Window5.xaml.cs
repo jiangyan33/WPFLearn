@@ -15,15 +15,13 @@ using System.Windows.Shapes;
 namespace WPFTest.One
 {
     /// <summary>
-    /// Window3.xaml 的交互逻辑
+    /// Window5.xaml 的交互逻辑
     /// </summary>
-    public partial class Window3 : Window
+    public partial class Window5 : Window
     {
-        public Window3()
+        public Window5()
         {
             InitializeComponent();
-
-            //var viewBox = new Viewbox();
         }
     }
 }
