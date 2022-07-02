@@ -1,5 +1,11 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
+using Zhaoxi.SmartParking.Server.IService;
+using Zhaoxi.SmartParking.Server.Models;
 
 namespace Zhaoxi.SmartParking.Server.Start.Controllers
 {
@@ -7,10 +13,44 @@ namespace Zhaoxi.SmartParking.Server.Start.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
-        [HttpPost("login")]
-        public string Login([FromForm] string userName, [FromForm] string password)
+
+        private readonly ISysUserInfoService _sysUserInfoService;
+
+        public UserController(ISysUserInfoService sysUserInfoService)
         {
-            return "{\"State\":\"True\"}";
+            _sysUserInfoService = sysUserInfoService;
+        }
+
+        [HttpPost("login")]
+        public IActionResult Login([FromForm] string userName, [FromForm] string password)
+        {
+            var pwd = GetMd5Str(GetMd5Str(password) + "|" + userName);
+
+            var userList = _sysUserInfoService.Query<SysUserInfo>(x => x.UserName == userName && x.Password == pwd);
+
+            if (userList?.Count() > 0)
+            {
+                var userInfo = userList.ToList()[0];
+
+                return Ok(userInfo);
+            }
+            else
+            {
+                return NoContent();
+            }
+        }
+
+        private string GetMd5Str(string str)
+        {
+            if (string.IsNullOrEmpty(str)) return "";
+
+            var result = Encoding.Default.GetBytes(str);
+
+            var md5 = new MD5CryptoServiceProvider();
+
+            var output = md5.ComputeHash(result);
+
+            return BitConverter.ToString(output).Replace("-", "");
         }
     }
 }

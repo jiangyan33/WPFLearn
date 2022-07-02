@@ -6,7 +6,12 @@ namespace Zhaoxi.SmartParking.Server.EFCore
 {
     public class EFCoreContext : DbContext
     {
-        private string _connectionString = "Server=localhost;Database=zx_sp_record;Trusted_Connection=True";
+        private readonly string _connectionString;
+
+        public EFCoreContext(string strConn)
+        {
+            _connectionString = strConn;
+        }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
