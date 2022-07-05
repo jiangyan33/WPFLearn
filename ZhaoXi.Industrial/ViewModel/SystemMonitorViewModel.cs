@@ -1,12 +1,29 @@
 ﻿using System.Collections.ObjectModel;
+using System.Windows.Input;
 using ZhaoXi.Industrial.Base;
 using ZhaoXi.Industrial.Model;
 
 namespace ZhaoXi.Industrial.ViewModel
 {
-    public class SystemMonitorViewModel
+    public class SystemMonitorViewModel : NotifyBase
     {
         public ObservableCollection<LogModel> LogList { get; set; } = new ObservableCollection<LogModel>();
+
+        private DeviceModel _currentDevice;
+
+        public DeviceModel CurrentDevice
+        {
+            get { return _currentDevice; }
+            set { Set<DeviceModel>(ref _currentDevice, value); }
+        }
+
+        private bool _isShowDetail;
+
+        public bool IsShowDetail
+        {
+            get { return _isShowDetail; }
+            set { Set<bool>(ref _isShowDetail, value); }
+        }
 
         public DeviceModel TestDevice { get; set; }
 
@@ -78,6 +95,8 @@ namespace ZhaoXi.Industrial.ViewModel
             TestDevice.WarningMessageList.Add(new WarningMessageModel { Message = "冷却塔1#入口温度极低。当前值：0", ValueId = "1" });
 
             #endregion
+
+            this.ComponentCommand = new CommandBase(DoTowerCommand);
         }
 
         private void InitLogInfo()
@@ -95,5 +114,19 @@ namespace ZhaoXi.Industrial.ViewModel
             LogList.Add(new LogModel { RowNumber = 6, DeviceName = "循环水泵 3#", LogInfo = "已启动", LogType = LogType.Info });
         }
 
+        public CommandBase ComponentCommand { get; set; }
+
+        private void DoTowerCommand(object param)
+        {
+
+            var device = param as DeviceModel;
+
+            if (CurrentDevice != device)
+            {
+                CurrentDevice = device;
+            }
+            if (!IsShowDetail)
+                IsShowDetail = true;
+        }
     }
 }

@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO.Ports;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace ZhaoXi.Communication.Modbus
@@ -92,6 +90,7 @@ namespace ZhaoXi.Communication.Modbus
         {
             byte _receiveBytes;
 
+            // 读取缓存区的所有数据，如果数据超过512,舍弃掉
             while (_serialPort.BytesToRead > 0)
             {
                 _receiveBytes = (byte)_serialPort.ReadByte();
@@ -110,26 +109,29 @@ namespace ZhaoXi.Communication.Modbus
                 }
             }
 
+            //_byteBuffer字节数据中 第一个是从站地址，第二个是功能码，这个不知道为什么是5，我请求的是72
+
             if (_byteBuffer[0] == (byte)_currentSlave && _byteBuffer[1] == _funcCode && _receiveByteCount >= _wordLen + 5)
             {
                 // 检查crc
 
-                // 返回数据
+                // 返回数据 返回前75个字节的数据
                 ResponseData?.Invoke(_startAddr, new List<byte>(SubByteArray(_byteBuffer, 0, _wordLen + 3)));
             }
-
-
         }
 
 
         public async Task<bool> Send(int slaveAddr, byte funcCode, int startAddr, int len)
         {
 
+            // 03
             _funcCode = funcCode;
 
+            // 1
             _currentSlave = slaveAddr;
 
-            _funcCode = funcCode;
+            // 0
+            _startAddr = startAddr;
 
             if (funcCode == 0x01)
             {
@@ -138,6 +140,7 @@ namespace ZhaoXi.Communication.Modbus
 
             if (funcCode == 0x03)
             {
+                // 72
                 _wordLen = len * 2;
             }
 

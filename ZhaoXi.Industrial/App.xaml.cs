@@ -10,7 +10,9 @@ using ZhaoXi.Industrial.Base;
 namespace ZhaoXi.Industrial
 {
     /// <summary>
-    /// App.xaml 的交互逻辑
+    /// 项目说明，串口通信，主站一直向从站请求数据，一次请求的数据包含3个驱动中的所有数据，一个驱动中有6个监控数值，一个18个数据
+    /// 
+    /// 
     /// </summary>
     public partial class App : Application
     {
@@ -30,7 +32,7 @@ namespace ZhaoXi.Industrial
                     Current.Dispatcher.Invoke(() =>
                     {
                         MessageBox.Show(msg, "系统启动失败");
-                        Current.Shutdown();
+                        Current.Shutdown(); 
                     });
                 });
         }

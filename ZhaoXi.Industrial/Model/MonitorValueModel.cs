@@ -9,7 +9,7 @@ using ZhaoXi.Industrial.Base;
 
 namespace ZhaoXi.Industrial.Model
 {
-    public class MonitorValueModel
+    public class MonitorValueModel : NotifyBase
     {
 
         public Action<MonitorValueState, string, string> ValueStateChanged;
@@ -43,7 +43,7 @@ namespace ZhaoXi.Industrial.Model
             get { return _currentValue; }
             set
             {
-                _currentValue = value;
+                Set<double>(ref _currentValue, value);
 
                 if (IsAlarm)
                 {

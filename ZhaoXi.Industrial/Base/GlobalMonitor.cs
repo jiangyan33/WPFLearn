@@ -82,6 +82,7 @@ namespace ZhaoXi.Industrial.Base
                          {
                              if (item.Length > 100)
                              {
+
                                  startAddr = item.StartAddress;
 
                                  int readCount = item.Length / 100;
@@ -97,6 +98,12 @@ namespace ZhaoXi.Industrial.Base
 
                              if (item.Length % 100 > 0)
                              {
+                                 // 从站地址=1，功能码=03，长度=36,向从站地址请求数据  起始地址=0
+
+                                 //var le = item.Length / 100;
+
+                                 var length = 100 * (item.Length / 100);
+
                                  await rtuInstance.Send(item.SlaveAddress, byte.Parse(item.FuncCode), startAddr + 100 * (item.Length / 100), item.Length % 100);
                              }
                          }

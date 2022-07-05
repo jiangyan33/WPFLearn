@@ -1,14 +1,29 @@
-﻿<UserControl x:Class="ZhaoXi.Controls.Components.CoolingTower"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:local="clr-namespace:ZhaoXi.Controls.Components"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             d:DesignHeight="450"
-             d:DesignWidth="800"
-             mc:Ignorable="d">
+﻿<local:ComponentBase x:Class="ZhaoXi.Controls.Components.CoolingTower"
+                     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                     xmlns:local="clr-namespace:ZhaoXi.Controls.Components"
+                     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                     d:DesignHeight="450"
+                     d:DesignWidth="800"
+                     mc:Ignorable="d">
     <Border Name="frame" BorderThickness="1">
         <VisualStateManager.VisualStateGroups>
+            <!--  选中状态  -->
+            <VisualStateGroup>
+                <VisualState x:Name="SelectedState">
+                    <Storyboard>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="frame" Storyboard.TargetProperty="(Border.BorderBrush)">
+                            <DiscreteObjectKeyFrame KeyTime="0">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <SolidColorBrush Color="Orange" />
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+                    </Storyboard>
+                </VisualState>
+                <VisualState x:Name="UnselectedState" />
+            </VisualStateGroup>
 
             <VisualStateGroup>
                 <!--  互斥状态  -->
@@ -37,7 +52,7 @@
                 <!--  报警状态  -->
                 <VisualState x:Name="FaultState">
                     <Storyboard>
-                        <ColorAnimationUsingKeyFrames RemoveRequested="Forever"
+                        <ColorAnimationUsingKeyFrames RepeatBehavior="Forever"
                                                       Storyboard.TargetName="gsRed1"
                                                       Storyboard.TargetProperty="Color">
                             <DiscreteColorKeyFrame KeyTime="0:0:0.5" Value="Red" />
@@ -237,4 +252,4 @@
             </Canvas>
         </Viewbox>
     </Border>
-</UserControl>
+</local:ComponentBase>

@@ -48,8 +48,15 @@
     <Compile Include="CircularProgressBar.xaml.cs">
       <DependentUpon>CircularProgressBar.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Components\ComponentBase.cs" />
+    <Compile Include="Components\CoolingPump.xaml.cs">
+      <DependentUpon>CoolingPump.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Components\CoolingTower.xaml.cs">
       <DependentUpon>CoolingTower.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Components\Pipeline.xaml.cs">
+      <DependentUpon>Pipeline.xaml</DependentUpon>
     </Compile>
     <Compile Include="Instrument.xaml.cs">
       <DependentUpon>Instrument.xaml</DependentUpon>
@@ -64,7 +71,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Components\CoolingPump.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Components\CoolingTower.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Components\Pipeline.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

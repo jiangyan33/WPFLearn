@@ -107,6 +107,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Base\CommandBase.cs" />
+    <Compile Include="Base\Converter\Bool2VisibilityConverter.cs" />
     <Compile Include="Base\LogType.cs" />
     <Compile Include="Base\NotifyBase.cs" />
     <Compile Include="Model\LogModel.cs" />
