@@ -61,6 +61,14 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zhaoxi.SmartParking.Server.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zhaoxi.SmartParking.Server.IService", "Server\Zhaoxi.SmartParking.Server.IService\Zhaoxi.SmartParking.Server.IService.csproj", "{FB61B3CA-79B3-4C50-985F-DD98620BF1D4}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ZHaoxi.SmartParking.Client.Start", "Client\ZHaoxi.SmartParking.Client.Start\ZHaoxi.SmartParking.Client.Start.csproj", "{E11F75DB-760B-41B7-9352-BDAFD0B641F4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zhaoxi.SmartParking.Client.Common", "Client\Zhaoxi.SmartParking.Client.Common\Zhaoxi.SmartParking.Client.Common.csproj", "{D7870B2A-8475-47C7-8BAA-79725D3A2BDF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zhaoxi.SmartParking.Client.DAL", "Client\Zhaoxi.SmartParking.Client.DAL\Zhaoxi.SmartParking.Client.DAL.csproj", "{236F036B-B758-4C3A-AD3E-58B3D769950A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zhaoxi.SmartParking.Client.IDAL", "Zhaoxi.SmartParking.Client.IDAL\Zhaoxi.SmartParking.Client.IDAL.csproj", "{6E0A528B-3861-4BBA-A7A6-087086980CA9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -123,6 +131,22 @@ Global
 		{FB61B3CA-79B3-4C50-985F-DD98620BF1D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FB61B3CA-79B3-4C50-985F-DD98620BF1D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FB61B3CA-79B3-4C50-985F-DD98620BF1D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E11F75DB-760B-41B7-9352-BDAFD0B641F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E11F75DB-760B-41B7-9352-BDAFD0B641F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E11F75DB-760B-41B7-9352-BDAFD0B641F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E11F75DB-760B-41B7-9352-BDAFD0B641F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D7870B2A-8475-47C7-8BAA-79725D3A2BDF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7870B2A-8475-47C7-8BAA-79725D3A2BDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7870B2A-8475-47C7-8BAA-79725D3A2BDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7870B2A-8475-47C7-8BAA-79725D3A2BDF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{236F036B-B758-4C3A-AD3E-58B3D769950A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{236F036B-B758-4C3A-AD3E-58B3D769950A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{236F036B-B758-4C3A-AD3E-58B3D769950A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{236F036B-B758-4C3A-AD3E-58B3D769950A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E0A528B-3861-4BBA-A7A6-087086980CA9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E0A528B-3861-4BBA-A7A6-087086980CA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E0A528B-3861-4BBA-A7A6-087086980CA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E0A528B-3861-4BBA-A7A6-087086980CA9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -147,6 +171,10 @@ Global
 		{EBB8A510-65C1-4066-902B-FF7FC5FA6E8E} = {4527BB49-EA8E-45DE-B1FC-0AF8C61EE074}
 		{1EA7ED31-37E7-4B85-A073-6B3072E49D36} = {F3FD4180-76BA-4AB3-87B3-BBFF6B2CE53D}
 		{FB61B3CA-79B3-4C50-985F-DD98620BF1D4} = {F3FD4180-76BA-4AB3-87B3-BBFF6B2CE53D}
+		{E11F75DB-760B-41B7-9352-BDAFD0B641F4} = {60FF09EB-8029-4B97-A30A-740EFA2C2CE7}
+		{D7870B2A-8475-47C7-8BAA-79725D3A2BDF} = {2010CE33-784B-4A17-B9A3-4E238F3C13E4}
+		{236F036B-B758-4C3A-AD3E-58B3D769950A} = {51A069DA-BC86-49D1-9917-E8ED82F865BA}
+		{6E0A528B-3861-4BBA-A7A6-087086980CA9} = {51A069DA-BC86-49D1-9917-E8ED82F865BA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {26F84C85-5206-4B6A-9A9B-CAC4F3013435}
