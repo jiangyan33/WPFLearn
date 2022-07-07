@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.0.32112.339
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32510.428
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZhaoXi.Controls", "ZhaoXi.Controls\ZhaoXi.Controls.csproj", "{441C416B-8464-4066-9EED-5BD15EF7070E}"
 EndProject
@@ -29,7 +29,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2.Modules", "2.Modules", "{
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3.BLL", "3.BLL", "{589D1AF6-261A-4AF9-ABB3-AE02A2314239}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.DLL", "4.DLL", "{51A069DA-BC86-49D1-9917-E8ED82F865BA}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.DAL", "4.DAL", "{51A069DA-BC86-49D1-9917-E8ED82F865BA}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5.Entity", "5.Entity", "{7E9AE774-F4A8-4499-9BBE-C54C09D0B8AE}"
 EndProject
@@ -63,11 +63,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zhaoxi.SmartParking.Server.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ZHaoxi.SmartParking.Client.Start", "Client\ZHaoxi.SmartParking.Client.Start\ZHaoxi.SmartParking.Client.Start.csproj", "{E11F75DB-760B-41B7-9352-BDAFD0B641F4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zhaoxi.SmartParking.Client.Common", "Client\Zhaoxi.SmartParking.Client.Common\Zhaoxi.SmartParking.Client.Common.csproj", "{D7870B2A-8475-47C7-8BAA-79725D3A2BDF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zhaoxi.SmartParking.Client.Common", "Client\Zhaoxi.SmartParking.Client.Common\Zhaoxi.SmartParking.Client.Common.csproj", "{D7870B2A-8475-47C7-8BAA-79725D3A2BDF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zhaoxi.SmartParking.Client.DAL", "Client\Zhaoxi.SmartParking.Client.DAL\Zhaoxi.SmartParking.Client.DAL.csproj", "{236F036B-B758-4C3A-AD3E-58B3D769950A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zhaoxi.SmartParking.Client.DAL", "Client\Zhaoxi.SmartParking.Client.DAL\Zhaoxi.SmartParking.Client.DAL.csproj", "{236F036B-B758-4C3A-AD3E-58B3D769950A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zhaoxi.SmartParking.Client.IDAL", "Zhaoxi.SmartParking.Client.IDAL\Zhaoxi.SmartParking.Client.IDAL.csproj", "{6E0A528B-3861-4BBA-A7A6-087086980CA9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zhaoxi.SmartParking.Client.BLL", "Client\Zhaoxi.SmartParking.Client.BLL\Zhaoxi.SmartParking.Client.BLL.csproj", "{E98C1C48-1D4D-46D7-AB82-4B683767F3E9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zhaoxi.SmartParking.Client.IDAL", "Client\Zhaoxi.SmartParking.Client.IDAL\Zhaoxi.SmartParking.Client.IDAL.csproj", "{F033EB0A-5FE1-4EFA-8BCE-F671414A91D8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zhaoxi.SmartParking.Client.IBLL", "Client\Zhaoxi.SmartParking.Client.IBLL\Zhaoxi.SmartParking.Client.IBLL.csproj", "{373201CB-6A4C-44E4-8D8F-63BBA8779F67}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zhaoxi.SmartParking.Client.Entity", "Client\Zhaoxi.SmartParking.Client.Entity\Zhaoxi.SmartParking.Client.Entity.csproj", "{F748C193-C58B-4657-AA81-4577DDC95DE4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -143,10 +149,22 @@ Global
 		{236F036B-B758-4C3A-AD3E-58B3D769950A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{236F036B-B758-4C3A-AD3E-58B3D769950A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{236F036B-B758-4C3A-AD3E-58B3D769950A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6E0A528B-3861-4BBA-A7A6-087086980CA9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6E0A528B-3861-4BBA-A7A6-087086980CA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6E0A528B-3861-4BBA-A7A6-087086980CA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6E0A528B-3861-4BBA-A7A6-087086980CA9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E98C1C48-1D4D-46D7-AB82-4B683767F3E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E98C1C48-1D4D-46D7-AB82-4B683767F3E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E98C1C48-1D4D-46D7-AB82-4B683767F3E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E98C1C48-1D4D-46D7-AB82-4B683767F3E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F033EB0A-5FE1-4EFA-8BCE-F671414A91D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F033EB0A-5FE1-4EFA-8BCE-F671414A91D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F033EB0A-5FE1-4EFA-8BCE-F671414A91D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F033EB0A-5FE1-4EFA-8BCE-F671414A91D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{373201CB-6A4C-44E4-8D8F-63BBA8779F67}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{373201CB-6A4C-44E4-8D8F-63BBA8779F67}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{373201CB-6A4C-44E4-8D8F-63BBA8779F67}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{373201CB-6A4C-44E4-8D8F-63BBA8779F67}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F748C193-C58B-4657-AA81-4577DDC95DE4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F748C193-C58B-4657-AA81-4577DDC95DE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F748C193-C58B-4657-AA81-4577DDC95DE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F748C193-C58B-4657-AA81-4577DDC95DE4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -174,7 +192,10 @@ Global
 		{E11F75DB-760B-41B7-9352-BDAFD0B641F4} = {60FF09EB-8029-4B97-A30A-740EFA2C2CE7}
 		{D7870B2A-8475-47C7-8BAA-79725D3A2BDF} = {2010CE33-784B-4A17-B9A3-4E238F3C13E4}
 		{236F036B-B758-4C3A-AD3E-58B3D769950A} = {51A069DA-BC86-49D1-9917-E8ED82F865BA}
-		{6E0A528B-3861-4BBA-A7A6-087086980CA9} = {51A069DA-BC86-49D1-9917-E8ED82F865BA}
+		{E98C1C48-1D4D-46D7-AB82-4B683767F3E9} = {589D1AF6-261A-4AF9-ABB3-AE02A2314239}
+		{F033EB0A-5FE1-4EFA-8BCE-F671414A91D8} = {51A069DA-BC86-49D1-9917-E8ED82F865BA}
+		{373201CB-6A4C-44E4-8D8F-63BBA8779F67} = {589D1AF6-261A-4AF9-ABB3-AE02A2314239}
+		{F748C193-C58B-4657-AA81-4577DDC95DE4} = {7E9AE774-F4A8-4499-9BBE-C54C09D0B8AE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {26F84C85-5206-4B6A-9A9B-CAC4F3013435}

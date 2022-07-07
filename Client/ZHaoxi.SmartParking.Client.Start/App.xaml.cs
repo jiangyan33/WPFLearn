@@ -7,6 +7,10 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using Zhaoxi.SmartParking.Client.BLL;
+using Zhaoxi.SmartParking.Client.DAL;
+using Zhaoxi.SmartParking.Client.IBLL;
+using Zhaoxi.SmartParking.Client.IDAL;
 using ZHaoxi.SmartParking.Client.Start.Views;
 
 namespace ZHaoxi.SmartParking.Client.Start
@@ -37,7 +41,9 @@ namespace ZHaoxi.SmartParking.Client.Start
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
+            containerRegistry.Register<ISysUserBLL, SysUserBLL>();
 
+            containerRegistry.Register<ISysUserDAL, SysUserDAL>();
         }
     }
 }

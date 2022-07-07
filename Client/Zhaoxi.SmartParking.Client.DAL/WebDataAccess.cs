@@ -9,7 +9,7 @@ namespace Zhaoxi.SmartParking.Client.DAL
 {
     public class WebDataAccess
     {
-        private string _domain = "localhost:5000/api/";
+        private string _domain = "http://localhost:5000/api/";
 
         public async Task<string> GetDatas(string url)
         {

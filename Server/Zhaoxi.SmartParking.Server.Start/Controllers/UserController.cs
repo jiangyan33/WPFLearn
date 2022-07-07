@@ -22,11 +22,11 @@ namespace Zhaoxi.SmartParking.Server.Start.Controllers
         }
 
         [HttpPost("login")]
-        public IActionResult Login([FromForm] string userName, [FromForm] string password)
+        public IActionResult Login([FromBody] SysUserInfo sysUserInfo)
         {
-            var pwd = GetMd5Str(GetMd5Str(password) + "|" + userName);
+            var pwd = GetMd5Str(GetMd5Str(sysUserInfo.Password) + "|" + sysUserInfo.UserName);
 
-            var userList = _sysUserInfoService.Query<SysUserInfo>(x => x.UserName == userName && x.Password == pwd);
+            var userList = _sysUserInfoService.Query<SysUserInfo>(x => x.UserName == sysUserInfo.UserName && x.Password == pwd);
 
             if (userList?.Count() > 0)
             {

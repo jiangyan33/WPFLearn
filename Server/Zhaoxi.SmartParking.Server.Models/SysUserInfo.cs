@@ -18,5 +18,8 @@ namespace Zhaoxi.SmartParking.Server.Models
         [Column("password")]
         public string Password { get; set; }
 
+        [Column("user_icon")]
+        public string UserIcon { get; set; }
+
     }
 }

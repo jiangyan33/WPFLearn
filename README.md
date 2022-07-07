@@ -30,3 +30,8 @@
 换行显示 TextWrapping=Wrap
 
 线条颜色 #DDD  灰色#CCC
+
+
+根据Model生成数据库表脚本（需要有空参构造方法）  
+1. add-migration A1
+2. update-database

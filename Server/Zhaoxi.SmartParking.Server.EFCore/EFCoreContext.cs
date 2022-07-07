@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System;
 using Zhaoxi.SmartParking.Server.Models;
 
 namespace Zhaoxi.SmartParking.Server.EFCore
@@ -15,10 +14,9 @@ namespace Zhaoxi.SmartParking.Server.EFCore
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(_connectionString);
+            optionsBuilder.UseMySQL(_connectionString);
         }
 
         public DbSet<SysUserInfo> SysUserInfo { get; set; }
-
     }
 }

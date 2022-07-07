@@ -5,12 +5,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
+using Zhaoxi.SmartParking.Client.IBLL;
 
 namespace ZHaoxi.SmartParking.Client.Start.ViewModels
 {
     public class LoginViewModel : BindableBase
     {
+        private readonly ISysUserBLL _sysUserBLL;
+
+        public LoginViewModel(ISysUserBLL sysUserBLL)
+        {
+            _sysUserBLL = sysUserBLL;
+        }
 
         private string _userName = "admin";
 
@@ -42,7 +50,7 @@ namespace ZHaoxi.SmartParking.Client.Start.ViewModels
             get => new DelegateCommand<object>(DoLogin);
         }
 
-        private void DoLogin(object obj)
+        private async void DoLogin(object obj)
         {
             try
             {
@@ -53,12 +61,21 @@ namespace ZHaoxi.SmartParking.Client.Start.ViewModels
                     return;
                 }
 
-                if (string.IsNullOrEmpty(Password)) 
+                if (string.IsNullOrEmpty(Password))
                 {
                     ErrorMessage = "请输入密码";
 
                     return;
                 }
+                var result = await _sysUserBLL.Login(this.UserName, this.Password);
+
+                if (!result)
+                {
+                    ErrorMessage = "用户名或者密码不正确";
+
+                    return;
+                }
+                (obj as Window).DialogResult = true;
             }
             catch (Exception ex)
             {
