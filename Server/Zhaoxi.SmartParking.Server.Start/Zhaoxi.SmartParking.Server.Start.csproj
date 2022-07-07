@@ -4,4 +4,14 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Zhaoxi.SmartParking.Server.Configuration\Zhaoxi.SmartParking.Server.Configuration.csproj" />
+    <ProjectReference Include="..\Zhaoxi.SmartParking.Server.EFContext\Zhaoxi.SmartParking.Server.EFContext.csproj" />
+    <ProjectReference Include="..\Zhaoxi.SmartParking.Server.IConfiguration\Zhaoxi.SmartParking.Server.IConfiguration.csproj" />
+    <ProjectReference Include="..\Zhaoxi.SmartParking.Server.IEFContext\Zhaoxi.SmartParking.Server.IEFContext.csproj" />
+    <ProjectReference Include="..\Zhaoxi.SmartParking.Server.IService\Zhaoxi.SmartParking.Server.IService.csproj" />
+    <ProjectReference Include="..\Zhaoxi.SmartParking.Server.Models\Zhaoxi.SmartParking.Server.Models.csproj" />
+    <ProjectReference Include="..\Zhaoxi.SmartParking.Server.Service\Zhaoxi.SmartParking.Server.Service.csproj" />
+  </ItemGroup>
+
 </Project>
