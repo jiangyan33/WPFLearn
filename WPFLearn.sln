@@ -75,6 +75,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zhaoxi.SmartParking.Client.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zhaoxi.SmartParking.Client.Entity", "Client\Zhaoxi.SmartParking.Client.Entity\Zhaoxi.SmartParking.Client.Entity.csproj", "{F748C193-C58B-4657-AA81-4577DDC95DE4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zhaoxi.SmartParking.Client.Assets", "Client\Zhaoxi.SmartParking.Client.Assets\Zhaoxi.SmartParking.Client.Assets.csproj", "{07DF044F-8225-44B3-9CF2-39E233855363}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -165,6 +167,10 @@ Global
 		{F748C193-C58B-4657-AA81-4577DDC95DE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F748C193-C58B-4657-AA81-4577DDC95DE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F748C193-C58B-4657-AA81-4577DDC95DE4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{07DF044F-8225-44B3-9CF2-39E233855363}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07DF044F-8225-44B3-9CF2-39E233855363}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07DF044F-8225-44B3-9CF2-39E233855363}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07DF044F-8225-44B3-9CF2-39E233855363}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -196,6 +202,7 @@ Global
 		{F033EB0A-5FE1-4EFA-8BCE-F671414A91D8} = {51A069DA-BC86-49D1-9917-E8ED82F865BA}
 		{373201CB-6A4C-44E4-8D8F-63BBA8779F67} = {589D1AF6-261A-4AF9-ABB3-AE02A2314239}
 		{F748C193-C58B-4657-AA81-4577DDC95DE4} = {7E9AE774-F4A8-4499-9BBE-C54C09D0B8AE}
+		{07DF044F-8225-44B3-9CF2-39E233855363} = {2010CE33-784B-4A17-B9A3-4E238F3C13E4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {26F84C85-5206-4B6A-9A9B-CAC4F3013435}

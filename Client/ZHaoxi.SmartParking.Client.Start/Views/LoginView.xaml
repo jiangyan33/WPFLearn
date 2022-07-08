@@ -6,39 +6,242 @@
         xmlns:local="clr-namespace:ZHaoxi.SmartParking.Client.Start.Views"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:prism="http://prismlibrary.com/"
-        Title="LoginView"
-        Width="800"
-        Height="450"
+        Title="登录"
+        Width="428"
+        Height="328"
         prism:ViewModelLocator.AutoWireViewModel="True"
-        FontSize="30"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
         mc:Ignorable="d">
+
+    <!--
+        设置无边框窗口  WindowChrome 描述窗口非工作区的自定义 GlassFrameThickness 窗口周围透明边框的宽度
+        若要使没有玻璃框架的自定义窗口，请将 GlassFrameThickness 属性设置为统一值 0。 这将禁用和隐藏标准标题按钮。
+        若要扩展玻璃框架以覆盖整个窗口，请将 GlassFrameThickness 属性设置为任意一端的负值。 当属性 GlassFrameThickness 设置为任何一端的负值时，其强制值将等于 GlassFrameCompleteThickness。
+    -->
+    <WindowChrome.WindowChrome>
+        <WindowChrome GlassFrameThickness="-1"
+                      NonClientFrameEdges="None"
+                      ResizeBorderThickness="0" />
+    </WindowChrome.WindowChrome>
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/Zhaoxi.SmartParking.Client.Assets;component/Styles/BaseResources.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/Zhaoxi.SmartParking.Client.Assets;component/Styles/ButtonStyles.xaml" />
+
+                <ResourceDictionary>
+                    <!--  输入框模板  -->
+                    <ControlTemplate x:Key="UserNameTextBoxTemplate" TargetType="TextBox">
+                        <Border BorderBrush="#DDD" BorderThickness="0,0,0,1">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="30" />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition Width="30" />
+                                </Grid.ColumnDefinitions>
+
+                                <TextBlock HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"
+                                           FontFamily="{StaticResource Iconfont}"
+                                           FontSize="20"
+                                           Foreground="#BBB"
+                                           Text="&#xeaa0;" />
+
+                                <TextBlock Grid.Column="2"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"
+                                           FontFamily="{StaticResource Iconfont}"
+                                           FontSize="18"
+                                           Foreground="#BBB"
+                                           Text="&#xe6df;" />
+
+                                <ScrollViewer Name="PART_ContentHost"
+                                              Grid.Column="1"
+                                              Margin="0,5,0,0"
+                                              Focusable="False"
+                                              HorizontalScrollBarVisibility="Hidden"
+                                              VerticalScrollBarVisibility="Hidden" />
+                            </Grid>
+                        </Border>
+                    </ControlTemplate>
+
+                    <!--  密码框模板  -->
+                    <ControlTemplate x:Key="PasswordBoxTemplate" TargetType="PasswordBox">
+                        <Border BorderBrush="#DDD" BorderThickness="0,0,0,1">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="30" />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition Width="30" />
+                                </Grid.ColumnDefinitions>
+
+                                <TextBlock HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"
+                                           FontFamily="{StaticResource Iconfont}"
+                                           FontSize="18"
+                                           Foreground="#BBB"
+                                           Text="&#xe60a;" />
+
+                                <TextBlock Grid.Column="2"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"
+                                           FontFamily="{StaticResource Iconfont}"
+                                           FontSize="16"
+                                           Foreground="#BBB"
+                                           Text="&#xe613;" />
+
+                                <ScrollViewer Name="PART_ContentHost"
+                                              Grid.Column="1"
+                                              Margin="0,5,0,0"
+                                              Focusable="False"
+                                              HorizontalScrollBarVisibility="Hidden"
+                                              VerticalScrollBarVisibility="Hidden" />
+                            </Grid>
+                        </Border>
+                    </ControlTemplate>
+
+                    <Style x:Key="TextBlockLink" TargetType="TextBlock">
+                        <Setter Property="Foreground" Value="#AAA" />
+                        <Setter Property="VerticalAlignment" Value="Center" />
+                        <Setter Property="TextDecorations" Value="{x:Null}" />
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Foreground" Value="#7AD0FB" />
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                    <!--  登录按钮  -->
+                    <ControlTemplate x:Key="LoginButton" TargetType="Button">
+                        <Grid>
+                            <Border CornerRadius="3">
+                                <Border.Background>
+                                    <LinearGradientBrush StartPoint="0.5,1" EndPoint="0.5,1">
+                                        <GradientStop Offset="0" Color="#FF0ABEFF" />
+                                        <GradientStop Offset="1" Color="#FF00B4FA" />
+                                    </LinearGradientBrush>
+                                </Border.Background>
+                                <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                            </Border>
+                            <Border x:Name="mask" CornerRadius="3" />
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="mask" Property="Background" Value="#22FFFFFF" />
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="mask" Property="Background" Value="#11000000" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
+            <RowDefinition Height="0.618*" />
             <RowDefinition />
         </Grid.RowDefinitions>
 
-        <TextBox Margin="20,0"
-                 VerticalAlignment="Center"
-                 Text="{Binding UserName}" />
-        <PasswordBox Grid.Row="1"
-                     Margin="20,0"
-                     VerticalAlignment="Center"
-                     common:PasswordHelper.Attach="True"
-                     common:PasswordHelper.Password="{Binding Password, Mode=TwoWay}" />
+        <Border Background="#2E9FFB" />
 
-        <TextBlock Grid.Row="2"
-                   Foreground="Red"
-                   Text="{Binding ErrorMessage}" />
-        <!--  在当前window窗体中查找Window  -->
-        <Button Grid.Row="3"
-                Width="200"
+        <StackPanel HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Orientation="Horizontal">
+            <Image Width="40"
+                   Height="40"
+                   Margin="10"
+                   Source="pack://application:,,,/Zhaoxi.SmartParking.Client.Assets;component/Images/Logo.png" />
+
+            <TextBlock VerticalAlignment="Center"
+                       FontSize="16"
+                       Foreground="White"
+                       Text="ZhaoXi" />
+        </StackPanel>
+
+        <StackPanel HorizontalAlignment="Right"
+                    VerticalAlignment="Top"
+                    Orientation="Horizontal">
+            <Button Height="28"
+                    Background="Transparent"
+                    Content="&#xe6bf;"
+                    Style="{StaticResource IconButtonStyle}" />
+            <Button Height="28"
+                    Background="Transparent"
+                    Content="&#xe625;"
+                    Style="{StaticResource IconButtonStyle}" />
+        </StackPanel>
+
+
+        <Border Grid.RowSpan="2"
+                Width="70"
                 Height="70"
-                Margin="20,0"
-                Command="{Binding LoginCommand}"
-                CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"
-                Content="登录" />
+                Margin="0,80,0,0"
+                VerticalAlignment="Top"
+                BorderBrush="#FFA5CEF0"
+                BorderThickness="2"
+                CornerRadius="40">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="10"
+                                  Direction="265"
+                                  Opacity="0.3"
+                                  ShadowDepth="5"
+                                  Color="Gray" />
+            </Border.Effect>
+            <Border.Background>
+                <ImageBrush ImageSource="pack://application:,,,/Zhaoxi.SmartParking.Client.Assets;component/Images/avatar.png" />
+            </Border.Background>
+        </Border>
+
+        <StackPanel Grid.Row="2"
+                    Width="240"
+                    Margin="0,0,0,10"
+                    VerticalAlignment="Bottom">
+            <TextBox Height="31"
+                     FontSize="18"
+                     Template="{StaticResource UserNameTextBoxTemplate}"
+                     Text="{Binding UserName}" />
+            <PasswordBox Height="31"
+                         common:PasswordHelper.Attach="True"
+                         common:PasswordHelper.Password="{Binding Password, Mode=TwoWay}"
+                         FontSize="18"
+                         Template="{StaticResource PasswordBoxTemplate}" />
+
+            <UniformGrid Margin="0,10" Rows="1">
+                <CheckBox VerticalContentAlignment="Center"
+                          Content="自动登录"
+                          Foreground="#BBB" />
+                <CheckBox VerticalContentAlignment="Center"
+                          Content="记住密码"
+                          Foreground="#BBB" />
+                <TextBlock HorizontalAlignment="Right"
+                           Style="{StaticResource TextBlockLink}"
+                           Text="找回密码" />
+            </UniformGrid>
+
+
+            <!--  在当前window窗体中查找Window  -->
+            <Button Height="35"
+                    Command="{Binding LoginCommand}"
+                    CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"
+                    Content="登    录"
+                    Foreground="White"
+                    Template="{StaticResource LoginButton}" />
+            <TextBlock Margin="0,5"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       FontSize="11"
+                       Foreground="Red"
+                       Text="{Binding ErrorMessage}" />
+        </StackPanel>
+
+        <StackPanel Grid.Row="1"
+                    VerticalAlignment="Bottom"
+                    Orientation="Horizontal">
+            <TextBlock Margin="10,0,0,5"
+                       Style="{StaticResource TextBlockLink}"
+                       Text="注册账号" />
+        </StackPanel>
     </Grid>
 </Window>
