@@ -236,12 +236,20 @@
                        Text="{Binding ErrorMessage}" />
         </StackPanel>
 
-        <StackPanel Grid.Row="1"
-                    VerticalAlignment="Bottom"
-                    Orientation="Horizontal">
-            <TextBlock Margin="10,0,0,5"
+
+        <Grid Grid.Row="1" VerticalAlignment="Bottom">
+            <TextBlock Margin="5,30,0,5"
                        Style="{StaticResource TextBlockLink}"
                        Text="注册账号" />
-        </StackPanel>
+
+            <TextBlock Width="40"
+                       Height="40"
+                       Margin="0,0,5,5"
+                       HorizontalAlignment="Right"
+                       FontFamily="{StaticResource Iconfont}"
+                       FontSize="35"
+                       Style="{StaticResource TextBlockLink}"
+                       Text="&#xe648;" />
+        </Grid>
     </Grid>
 </Window>
