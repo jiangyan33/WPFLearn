@@ -10,28 +10,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace ZHaoxi.SmartParking.Client.Start.Views
+namespace Zhaoxi.SmartParking.Client.MainModule.Views
 {
     /// <summary>
-    /// LoginVIew.xaml 的交互逻辑
+    /// TreeMenuView.xaml 的交互逻辑
     /// </summary>
-    public partial class LoginView : Window
+    public partial class TreeMenuView : UserControl
     {
-        public LoginView()
+        public TreeMenuView()
         {
             InitializeComponent();
-        }
-
-        private void btnClose_Click(object sender, RoutedEventArgs e)
-        {
-            this.DialogResult = false;
-        }
-
-        private void btnMini_Click(object sender, RoutedEventArgs e)
-        {
-            this.WindowState = WindowState.Minimized;
         }
     }
 }

@@ -23,6 +23,8 @@ namespace Zhaoxi.SmartParking.Server.Start
 
             services.AddTransient<IEFContext.IEFContext, EFContext.EFContext>();
 
+            services.AddTransient<IMenuService, MenuService>();
+
             services.AddTransient<ISysUserInfoService, SysUserInfoService>();
 
             services.AddControllers();

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.32510.428
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32112.339
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZhaoXi.Controls", "ZhaoXi.Controls\ZhaoXi.Controls.csproj", "{441C416B-8464-4066-9EED-5BD15EF7070E}"
 EndProject
@@ -67,15 +67,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zhaoxi.SmartParking.Client.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zhaoxi.SmartParking.Client.DAL", "Client\Zhaoxi.SmartParking.Client.DAL\Zhaoxi.SmartParking.Client.DAL.csproj", "{236F036B-B758-4C3A-AD3E-58B3D769950A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zhaoxi.SmartParking.Client.BLL", "Client\Zhaoxi.SmartParking.Client.BLL\Zhaoxi.SmartParking.Client.BLL.csproj", "{E98C1C48-1D4D-46D7-AB82-4B683767F3E9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zhaoxi.SmartParking.Client.BLL", "Client\Zhaoxi.SmartParking.Client.BLL\Zhaoxi.SmartParking.Client.BLL.csproj", "{E98C1C48-1D4D-46D7-AB82-4B683767F3E9}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zhaoxi.SmartParking.Client.IDAL", "Client\Zhaoxi.SmartParking.Client.IDAL\Zhaoxi.SmartParking.Client.IDAL.csproj", "{F033EB0A-5FE1-4EFA-8BCE-F671414A91D8}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zhaoxi.SmartParking.Client.IBLL", "Client\Zhaoxi.SmartParking.Client.IBLL\Zhaoxi.SmartParking.Client.IBLL.csproj", "{373201CB-6A4C-44E4-8D8F-63BBA8779F67}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zhaoxi.SmartParking.Client.Entity", "Client\Zhaoxi.SmartParking.Client.Entity\Zhaoxi.SmartParking.Client.Entity.csproj", "{F748C193-C58B-4657-AA81-4577DDC95DE4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zhaoxi.SmartParking.Client.Entity", "Client\Zhaoxi.SmartParking.Client.Entity\Zhaoxi.SmartParking.Client.Entity.csproj", "{F748C193-C58B-4657-AA81-4577DDC95DE4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zhaoxi.SmartParking.Client.Assets", "Client\Zhaoxi.SmartParking.Client.Assets\Zhaoxi.SmartParking.Client.Assets.csproj", "{07DF044F-8225-44B3-9CF2-39E233855363}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zhaoxi.SmartParking.Client.Assets", "Client\Zhaoxi.SmartParking.Client.Assets\Zhaoxi.SmartParking.Client.Assets.csproj", "{07DF044F-8225-44B3-9CF2-39E233855363}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zhaoxi.SmartParking.Client.MainModule", "Client\Zhaoxi.SmartParking.Client.MainModule\Zhaoxi.SmartParking.Client.MainModule.csproj", "{D926D576-EAAE-4E35-A953-4228CF49E7A2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -171,6 +173,10 @@ Global
 		{07DF044F-8225-44B3-9CF2-39E233855363}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{07DF044F-8225-44B3-9CF2-39E233855363}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{07DF044F-8225-44B3-9CF2-39E233855363}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D926D576-EAAE-4E35-A953-4228CF49E7A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D926D576-EAAE-4E35-A953-4228CF49E7A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D926D576-EAAE-4E35-A953-4228CF49E7A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D926D576-EAAE-4E35-A953-4228CF49E7A2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -203,6 +209,7 @@ Global
 		{373201CB-6A4C-44E4-8D8F-63BBA8779F67} = {589D1AF6-261A-4AF9-ABB3-AE02A2314239}
 		{F748C193-C58B-4657-AA81-4577DDC95DE4} = {7E9AE774-F4A8-4499-9BBE-C54C09D0B8AE}
 		{07DF044F-8225-44B3-9CF2-39E233855363} = {2010CE33-784B-4A17-B9A3-4E238F3C13E4}
+		{D926D576-EAAE-4E35-A953-4228CF49E7A2} = {C0A6A49B-268B-4D22-AE9C-41C433269FB5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {26F84C85-5206-4B6A-9A9B-CAC4F3013435}

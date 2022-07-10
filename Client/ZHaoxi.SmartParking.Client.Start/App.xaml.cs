@@ -1,4 +1,5 @@
 ﻿using Prism.Ioc;
+using Prism.Modularity;
 using Prism.Unity;
 using System;
 using System.Collections.Generic;
@@ -11,6 +12,7 @@ using Zhaoxi.SmartParking.Client.BLL;
 using Zhaoxi.SmartParking.Client.DAL;
 using Zhaoxi.SmartParking.Client.IBLL;
 using Zhaoxi.SmartParking.Client.IDAL;
+using Zhaoxi.SmartParking.Client.MainModule;
 using ZHaoxi.SmartParking.Client.Start.Views;
 
 namespace ZHaoxi.SmartParking.Client.Start
@@ -44,6 +46,14 @@ namespace ZHaoxi.SmartParking.Client.Start
             containerRegistry.Register<ISysUserBLL, SysUserBLL>();
 
             containerRegistry.Register<ISysUserDAL, SysUserDAL>();
+        }
+
+        protected override void ConfigureModuleCatalog(IModuleCatalog moduleCatalog)
+        {
+
+            moduleCatalog.AddModule<MainModule>();
+
+            base.ConfigureModuleCatalog(moduleCatalog);
         }
     }
 }

@@ -18,6 +18,7 @@
     <ProjectReference Include="..\Zhaoxi.SmartParking.Client.DAL\Zhaoxi.SmartParking.Client.DAL.csproj" />
     <ProjectReference Include="..\Zhaoxi.SmartParking.Client.IBLL\Zhaoxi.SmartParking.Client.IBLL.csproj" />
     <ProjectReference Include="..\Zhaoxi.SmartParking.Client.IDAL\Zhaoxi.SmartParking.Client.IDAL.csproj" />
+    <ProjectReference Include="..\Zhaoxi.SmartParking.Client.MainModule\Zhaoxi.SmartParking.Client.MainModule.csproj" />
   </ItemGroup>
 
 </Project>

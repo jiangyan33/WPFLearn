@@ -56,30 +56,24 @@ namespace ZHaoxi.SmartParking.Client.Start.ViewModels
             {
                 if (string.IsNullOrEmpty(UserName))
                 {
-                    ErrorMessage = "请输入用户名";
-
-                    return;
+                    throw new Exception("请输入用户名");
                 }
 
                 if (string.IsNullOrEmpty(Password))
                 {
-                    ErrorMessage = "请输入密码";
-
-                    return;
+                    throw new Exception("请输入密码");
                 }
                 var result = await _sysUserBLL.Login(this.UserName, this.Password);
 
                 if (!result)
                 {
-                    ErrorMessage = "用户名或者密码不正确";
-
-                    return;
+                    throw new Exception("用户名或者密码不正确");
                 }
                 (obj as Window).DialogResult = true;
             }
             catch (Exception ex)
             {
-
+                ErrorMessage = $"登录失败,{ex.Message}";
             }
         }
 

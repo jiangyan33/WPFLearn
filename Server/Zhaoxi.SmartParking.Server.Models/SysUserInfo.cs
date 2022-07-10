@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -20,6 +21,9 @@ namespace Zhaoxi.SmartParking.Server.Models
 
         [Column("user_icon")]
         public string UserIcon { get; set; }
+
+        [NotMapped]
+        public List<MenuInfo> Menus { get; set; }
 
     }
 }

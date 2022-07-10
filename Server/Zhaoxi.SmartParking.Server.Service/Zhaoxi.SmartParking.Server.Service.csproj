@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Zhaoxi.SmartParking.Server.IEFContext\Zhaoxi.SmartParking.Server.IEFContext.csproj" />
     <ProjectReference Include="..\Zhaoxi.SmartParking.Server.IService\Zhaoxi.SmartParking.Server.IService.csproj" />
   </ItemGroup>

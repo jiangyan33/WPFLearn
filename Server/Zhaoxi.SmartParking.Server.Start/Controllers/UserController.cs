@@ -16,9 +16,13 @@ namespace Zhaoxi.SmartParking.Server.Start.Controllers
 
         private readonly ISysUserInfoService _sysUserInfoService;
 
-        public UserController(ISysUserInfoService sysUserInfoService)
+        private readonly IMenuService _menuService;
+
+        public UserController(ISysUserInfoService sysUserInfoService, IMenuService menuService)
         {
             _sysUserInfoService = sysUserInfoService;
+
+            _menuService = menuService;
         }
 
         [HttpPost("login")]
@@ -31,6 +35,10 @@ namespace Zhaoxi.SmartParking.Server.Start.Controllers
             if (userList?.Count() > 0)
             {
                 var userInfo = userList.ToList()[0];
+
+                var menus = _menuService.GetMenusByUserId(userInfo.Id);
+
+                userInfo.Menus = menus;
 
                 return Ok(userInfo);
             }
