@@ -1,9 +1,12 @@
-﻿using Prism.Mvvm;
+﻿using Prism.Commands;
+using Prism.Mvvm;
+using Prism.Regions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace Zhaoxi.SmartParking.Client.MainModule.Models
 {
@@ -24,7 +27,27 @@ namespace Zhaoxi.SmartParking.Client.MainModule.Models
             set { SetProperty(ref _isExpanded, value); }
         }
 
-        public List<MenuItemModel> Children { get; set; }
+        public List<MenuItemModel> Children { get; set; } = new List<MenuItemModel>();
+
+        public ICommand OpenViewCommand
+        {
+            get => new DelegateCommand(() =>
+            {
+                if (Children != null && Children.Count != 0 && !string.IsNullOrEmpty(TargetView))
+                {
+                    _regionManager.RegisterViewWithRegion("MainContentRegion", TargetView);
+                }
+                else IsExpanded = !IsExpanded;
+            });
+        }
+
+
+        private readonly IRegionManager _regionManager;
+
+        public MenuItemModel(IRegionManager regionManager)
+        {
+            _regionManager = regionManager;
+        }
     }
 
 }

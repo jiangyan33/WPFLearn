@@ -8,6 +8,7 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using Zhaoxi.SmartParking.Client.BaseModule;
 using Zhaoxi.SmartParking.Client.BLL;
 using Zhaoxi.SmartParking.Client.DAL;
 using Zhaoxi.SmartParking.Client.IBLL;
@@ -52,6 +53,8 @@ namespace ZHaoxi.SmartParking.Client.Start
         {
 
             moduleCatalog.AddModule<MainModule>();
+
+            moduleCatalog.AddModule<BaseModule>();
 
             base.ConfigureModuleCatalog(moduleCatalog);
         }

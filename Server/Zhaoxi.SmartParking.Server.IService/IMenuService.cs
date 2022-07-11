@@ -15,6 +15,6 @@ namespace Zhaoxi.SmartParking.Server.IService
         
         public List<MenuInfo> GetAllMenus();
         
-        public void Save(int userId);
+        public void Save(string data);
     }
 }

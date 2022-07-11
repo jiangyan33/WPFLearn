@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Zhaoxi.SmartParking.Client.Entity
 {
@@ -11,5 +12,7 @@ namespace Zhaoxi.SmartParking.Client.Entity
         public string Password { get; set; }
 
         public string UserIcon { get; set; }
+
+        public List<MenuEntity> Menus { get; set; }
     }
 }

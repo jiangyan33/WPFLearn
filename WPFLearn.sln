@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.0.32112.339
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32510.428
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZhaoXi.Controls", "ZhaoXi.Controls\ZhaoXi.Controls.csproj", "{441C416B-8464-4066-9EED-5BD15EF7070E}"
 EndProject
@@ -77,7 +77,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zhaoxi.SmartParking.Client.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zhaoxi.SmartParking.Client.Assets", "Client\Zhaoxi.SmartParking.Client.Assets\Zhaoxi.SmartParking.Client.Assets.csproj", "{07DF044F-8225-44B3-9CF2-39E233855363}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zhaoxi.SmartParking.Client.MainModule", "Client\Zhaoxi.SmartParking.Client.MainModule\Zhaoxi.SmartParking.Client.MainModule.csproj", "{D926D576-EAAE-4E35-A953-4228CF49E7A2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zhaoxi.SmartParking.Client.MainModule", "Client\Zhaoxi.SmartParking.Client.MainModule\Zhaoxi.SmartParking.Client.MainModule.csproj", "{D926D576-EAAE-4E35-A953-4228CF49E7A2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zhaoxi.SmartParking.Client.BaseModule", "Client\Zhaoxi.SmartParking.Client.BaseModule\Zhaoxi.SmartParking.Client.BaseModule.csproj", "{7F3283F7-1AF5-463F-B241-A128B95CDC80}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -177,6 +179,10 @@ Global
 		{D926D576-EAAE-4E35-A953-4228CF49E7A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D926D576-EAAE-4E35-A953-4228CF49E7A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D926D576-EAAE-4E35-A953-4228CF49E7A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F3283F7-1AF5-463F-B241-A128B95CDC80}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F3283F7-1AF5-463F-B241-A128B95CDC80}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F3283F7-1AF5-463F-B241-A128B95CDC80}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F3283F7-1AF5-463F-B241-A128B95CDC80}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -210,6 +216,7 @@ Global
 		{F748C193-C58B-4657-AA81-4577DDC95DE4} = {7E9AE774-F4A8-4499-9BBE-C54C09D0B8AE}
 		{07DF044F-8225-44B3-9CF2-39E233855363} = {2010CE33-784B-4A17-B9A3-4E238F3C13E4}
 		{D926D576-EAAE-4E35-A953-4228CF49E7A2} = {C0A6A49B-268B-4D22-AE9C-41C433269FB5}
+		{7F3283F7-1AF5-463F-B241-A128B95CDC80} = {C0A6A49B-268B-4D22-AE9C-41C433269FB5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {26F84C85-5206-4B6A-9A9B-CAC4F3013435}
