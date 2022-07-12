@@ -6,7 +6,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Prism.Wpf" Version="8.1.97" />
+    <PackageReference Include="Prism.Unity" Version="8.1.97" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Zhaoxi.SmartParking.Client.Assets\Zhaoxi.SmartParking.Client.Assets.csproj" />
+    <ProjectReference Include="..\Zhaoxi.SmartParking.Client.Common\Zhaoxi.SmartParking.Client.Common.csproj" />
   </ItemGroup>
 
 </Project>

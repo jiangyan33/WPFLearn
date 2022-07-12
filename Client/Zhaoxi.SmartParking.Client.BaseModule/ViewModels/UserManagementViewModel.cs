@@ -1,22 +1,13 @@
-﻿using Prism.Commands;
-using System.Windows.Input;
+﻿using Prism.Regions;
+using Zhaoxi.SmartParking.Client.Common;
 
 namespace Zhaoxi.SmartParking.Client.BaseModule.ViewModels
 {
-    public class UserManagementViewModel
+    public class UserManagementViewModel : ViewModelNavigationBase
     {
-        public string PageTitle { get; set; } = "用户信息管理";
-
-        public bool IsCanClose { get; set; } = true;
-
-        public ICommand CloseCommand
+        public UserManagementViewModel(IRegionManager regionManager) : base(regionManager)
         {
-            get => new DelegateCommand<string>(Close);
-        }
-
-        private void Close(string uri)
-        {
-
+            PageTitle = "用户信息管理";
         }
     }
 }

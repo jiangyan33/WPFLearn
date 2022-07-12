@@ -31,7 +31,8 @@ namespace Zhaoxi.SmartParking.Client.MainModule.Models
             {
                 if (Children != null && Children.Count == 0 && !string.IsNullOrEmpty(TargetView))
                 {
-                    _regionManager.RegisterViewWithRegion("MainContentRegion", TargetView);
+                    // 点击导航的时候使用这个
+                    _regionManager.RequestNavigate("MainContentRegion", TargetView);
                 }
                 else IsExpanded = !IsExpanded;
             });
