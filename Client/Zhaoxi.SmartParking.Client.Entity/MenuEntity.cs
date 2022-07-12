@@ -8,11 +8,11 @@ namespace Zhaoxi.SmartParking.Client.Entity
 {
     public class MenuEntity
     {
-        public int MenuId { get; set; }
+        public int Id { get; set; }
 
         public string MenuHeader { get; set; }
 
-        public string TargerView { get; set; }
+        public string TargetView { get; set; }
 
         public int ParentId { get; set; }
 

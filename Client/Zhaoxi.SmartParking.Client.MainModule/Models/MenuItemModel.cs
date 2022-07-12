@@ -1,11 +1,7 @@
 ﻿using Prism.Commands;
 using Prism.Mvvm;
 using Prism.Regions;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace Zhaoxi.SmartParking.Client.MainModule.Models
@@ -33,7 +29,7 @@ namespace Zhaoxi.SmartParking.Client.MainModule.Models
         {
             get => new DelegateCommand(() =>
             {
-                if (Children != null && Children.Count != 0 && !string.IsNullOrEmpty(TargetView))
+                if (Children != null && Children.Count == 0 && !string.IsNullOrEmpty(TargetView))
                 {
                     _regionManager.RegisterViewWithRegion("MainContentRegion", TargetView);
                 }

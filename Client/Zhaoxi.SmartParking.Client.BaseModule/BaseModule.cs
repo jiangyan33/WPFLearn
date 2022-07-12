@@ -18,7 +18,6 @@ namespace Zhaoxi.SmartParking.Client.BaseModule
 
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
-
             containerRegistry.RegisterForNavigation<UserManagementView>();
         }
     }

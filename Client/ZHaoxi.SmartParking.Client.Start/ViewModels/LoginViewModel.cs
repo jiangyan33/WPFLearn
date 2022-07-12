@@ -28,7 +28,7 @@ namespace ZHaoxi.SmartParking.Client.Start.ViewModels
             set { SetProperty<string>(ref _userName, value); }
         }
 
-        private string _password;
+        private string _password="123456";
 
         public string Password
         {

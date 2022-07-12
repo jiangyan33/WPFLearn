@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Prism.Regions;
+using System.Collections.Generic;
 using Zhaoxi.SmartParking.Client.Entity;
 using Zhaoxi.SmartParking.Client.MainModule.Models;
 
@@ -10,8 +11,12 @@ namespace Zhaoxi.SmartParking.Client.MainModule.ViewModels
 
         private List<MenuEntity> originMenus;
 
-        public TreeMenuViewModel()
+        private readonly IRegionManager _regionManager;
+
+        public TreeMenuViewModel(IRegionManager regionManager)
         {
+            _regionManager = regionManager;
+
             originMenus = GlobalEntity.CurrentUserInfo.Menus;
 
             FillMenus(Menus, 0);
@@ -25,16 +30,16 @@ namespace Zhaoxi.SmartParking.Client.MainModule.ViewModels
             {
                 foreach (var item in sub)
                 {
-                    var menuItemModel = new MenuItemModel
+                    var menuItemModel = new MenuItemModel(_regionManager)
                     {
                         MenuIcon = item.MenuIcon,
                         MenuHeader = item.MenuHeader,
-                        TargetView = item.TargerView,
+                        TargetView = item.TargetView,
                     };
 
                     menus.Add(menuItemModel);
 
-                    FillMenus(menuItemModel.Children, item.MenuId);
+                    FillMenus(menuItemModel.Children, item.Id);
                 }
             }
         }

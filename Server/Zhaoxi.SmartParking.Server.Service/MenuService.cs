@@ -1,10 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
-using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Zhaoxi.SmartParking.Server.IService;
 using Zhaoxi.SmartParking.Server.Models;
 
@@ -18,7 +16,9 @@ namespace Zhaoxi.SmartParking.Server.Service
 
         public List<MenuInfo> GetAllMenus()
         {
-            return Context.Set<MenuInfo>().AsQueryable().Where(x => x.State == 1).ToList();
+            var menus = Context.Set<MenuInfo>().AsQueryable().Where(x => x.State == 1).ToList();
+
+            return ChangeMenuIcon(menus);
         }
 
         public List<MenuInfo> GetMenusByRoleId(int roleId)
@@ -35,7 +35,7 @@ namespace Zhaoxi.SmartParking.Server.Service
                         where role_menu.RoleId == roleId && menu.State == 1
                         select menu;
 
-            return query.Distinct().ToList();
+            return ChangeMenuIcon(query.Distinct().ToList());
         }
 
         public List<MenuInfo> GetMenusByUserId(int userId)
@@ -54,7 +54,7 @@ namespace Zhaoxi.SmartParking.Server.Service
                         where roles.Contains(role_menu.RoleId) && menu.State == 1
                         select menu;
 
-            return query.Distinct().ToList();
+            return ChangeMenuIcon(query.Distinct().ToList());
         }
 
         public void Save(string data)
@@ -73,6 +73,19 @@ namespace Zhaoxi.SmartParking.Server.Service
             Context.Entry(value).State = value.Id == 0 ? EntityState.Added : EntityState.Modified;
 
             Context.SaveChanges();
+        }
+
+        private List<MenuInfo> ChangeMenuIcon(List<MenuInfo> menuList)
+        {
+            return menuList;
+            return menuList.Select(it =>
+            {
+                if (!string.IsNullOrEmpty(it.MenuIcon))
+                {
+                    it.MenuIcon = $"&#x{it.MenuIcon};";
+                }
+                return it;
+            }).ToList();
         }
     }
 }
