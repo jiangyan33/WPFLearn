@@ -8,6 +8,7 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Threading;
 using Unity;
 using Zhaoxi.SmartParking.Client.BaseModule;
 using Zhaoxi.SmartParking.Client.BLL;
@@ -45,6 +46,9 @@ namespace ZHaoxi.SmartParking.Client.Start
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
+
+            containerRegistry.Register<Dispatcher>(() => Application.Current.Dispatcher);
+
             containerRegistry.Register<ISysUserBLL, SysUserBLL>();
 
             containerRegistry.Register<ISysUserDAL, SysUserDAL>();

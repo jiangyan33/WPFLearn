@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using Zhaoxi.SmartParking.Client.Entity;
 using Zhaoxi.SmartParking.Client.IBLL;
 using Zhaoxi.SmartParking.Client.IDAL;
@@ -14,6 +15,13 @@ namespace Zhaoxi.SmartParking.Client.BLL
             _sysUserDAL = sysUserDAL;
         }
 
+        public async Task<List<SysUserEntity>> All()
+        {
+            var result = await _sysUserDAL.All();
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<List<SysUserEntity>>(result);
+        }
+
         public async Task<bool> Login(string username, string password)
         {
             var result = await _sysUserDAL.Login(username, password);
@@ -23,6 +31,13 @@ namespace Zhaoxi.SmartParking.Client.BLL
             GlobalEntity.CurrentUserInfo = Newtonsoft.Json.JsonConvert.DeserializeObject<SysUserEntity>(result);
 
             return true;
+        }
+
+        public async Task<bool> ResetPwd(string userId)
+        {
+            var result = await _sysUserDAL.ResetPwd(userId);
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<bool>(result);
         }
     }
 }

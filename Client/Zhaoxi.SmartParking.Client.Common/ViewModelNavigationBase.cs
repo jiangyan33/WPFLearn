@@ -18,6 +18,8 @@ namespace Zhaoxi.SmartParking.Client.Common
         public ViewModelNavigationBase(IRegionManager regionManager)
         {
             _regionManager = regionManager;
+
+            Refresh();
         }
 
         public string PageTitle { get; set; }
@@ -25,6 +27,10 @@ namespace Zhaoxi.SmartParking.Client.Common
         public bool IsCanClose { get; set; } = true;
 
         private readonly IRegionManager _regionManager;
+
+        public ICommand RefreshCommand { get => new DelegateCommand(Refresh); }
+
+        public ICommand AddCommand { get => new DelegateCommand(Add); }
 
         public ICommand CloseCommand
         {
@@ -39,6 +45,15 @@ namespace Zhaoxi.SmartParking.Client.Common
             if (view == null) return;
             // 将这个对象从Region中移除掉
             region.Remove(view);
+        }
+
+        public virtual void Refresh()
+        {
+
+        }
+        public virtual void Add()
+        {
+
         }
     }
 }

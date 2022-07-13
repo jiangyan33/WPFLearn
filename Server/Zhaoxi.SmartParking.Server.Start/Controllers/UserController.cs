@@ -1,9 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using System;
+﻿using Microsoft.AspNetCore.Mvc;
 using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
 using Zhaoxi.SmartParking.Server.IService;
 using Zhaoxi.SmartParking.Server.Models;
 
@@ -18,19 +14,23 @@ namespace Zhaoxi.SmartParking.Server.Start.Controllers
 
         private readonly IMenuService _menuService;
 
-        public UserController(ISysUserInfoService sysUserInfoService, IMenuService menuService)
+        private readonly IRoleService _roleService;
+
+        public UserController(ISysUserInfoService sysUserInfoService, IMenuService menuService, IRoleService roleService)
         {
             _sysUserInfoService = sysUserInfoService;
 
             _menuService = menuService;
+
+            _roleService = roleService;
         }
 
         [HttpPost("login")]
         public IActionResult Login([FromBody] SysUserInfo sysUserInfo)
         {
-            var pwd = GetMd5Str(GetMd5Str(sysUserInfo.Password) + "|" + sysUserInfo.UserName);
+            var pwd = _sysUserInfoService.GetMd5Str(_sysUserInfoService.GetMd5Str(sysUserInfo.Password) + "|" + sysUserInfo.UserName);
 
-            var userList = _sysUserInfoService.Query<SysUserInfo>(x => x.UserName == sysUserInfo.UserName && x.Password == pwd);
+            var userList = _sysUserInfoService.Query<SysUserInfo>(x => x.UserName == sysUserInfo.UserName && x.Password == pwd && x.State == 1);
 
             if (userList?.Count() > 0)
             {
@@ -48,17 +48,30 @@ namespace Zhaoxi.SmartParking.Server.Start.Controllers
             }
         }
 
-        private string GetMd5Str(string str)
+        [HttpPost("all")]
+        public JsonResult All()
         {
-            if (string.IsNullOrEmpty(str)) return "";
+            var list = _sysUserInfoService.Query<SysUserInfo>(x => x.State == 1).ToList();
 
-            var result = Encoding.Default.GetBytes(str);
+            var userList = _roleService.GetRolesByUserIdList(list.Select(x => x.Id).ToList());
 
-            var md5 = new MD5CryptoServiceProvider();
+            foreach (var item in list)
+            {
+                var index = userList.FindIndex(x => x.Id == item.Id);
+                if (index == -1) continue;
 
-            var output = md5.ComputeHash(result);
+                item.Roles = userList[index].Roles;
+            }
 
-            return BitConverter.ToString(output).Replace("-", "");
+            return new JsonResult(list);
+        }
+
+        [HttpPost("resetpwd")]
+        public IActionResult ResetPassword([FromBody] int userId)
+        {
+            var result = _sysUserInfoService.ResetPassword(userId);
+
+            return Ok(result);
         }
     }
 }

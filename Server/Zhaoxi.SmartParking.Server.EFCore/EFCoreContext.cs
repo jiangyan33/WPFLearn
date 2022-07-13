@@ -9,15 +9,10 @@ namespace Zhaoxi.SmartParking.Server.EFCore
     {
         private readonly string _connectionString = "Data Source=120.79.185.158;Database=zx_sp_record;User ID=root;Password=helloworld;";
 
-        public EFCoreContext()
-        {
-        }
-
         public EFCoreContext(string strConn)
         {
             _connectionString = strConn;
         }
-
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

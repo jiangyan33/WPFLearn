@@ -13,6 +13,13 @@ namespace Zhaoxi.SmartParking.Client.Entity
 
         public string UserIcon { get; set; }
 
+        public string RealName { get; set; }
+
+        public int Age { get; set; }
+
         public List<MenuEntity> Menus { get; set; }
+
+        public List<RoleEntity> Roles { get; set; }
+
     }
 }

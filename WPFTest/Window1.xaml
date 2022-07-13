@@ -49,6 +49,7 @@
                     CornerRadius="50">
                 <Border.Effect>
                     <!--  在边框四周画阴影 BlurRadius阴影模糊效果的半径（越大越模糊）  阴影的方向（Direction 0-360度），Opacity 透明度（0-1，0没有阴影） shadowDepth(通常设置为0，阴影为4周)  -->
+                    <!--  Direction 阴影的方向【0向右，90向上，180向左，270向下】 ShadowDepth根据方向移动的距离【0不移动，负数无效】  -->
                     <DropShadowEffect BlurRadius="10"
                                       Direction="0"
                                       Opacity="1"

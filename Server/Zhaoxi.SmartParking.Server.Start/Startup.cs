@@ -25,6 +25,8 @@ namespace Zhaoxi.SmartParking.Server.Start
 
             services.AddTransient<IMenuService, MenuService>();
 
+            services.AddTransient<IRoleService, RoleService>();
+
             services.AddTransient<ISysUserInfoService, SysUserInfoService>();
 
             services.AddControllers();

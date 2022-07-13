@@ -14,6 +14,8 @@
         WindowStartupLocation="CenterScreen"
         mc:Ignorable="d">
 
+    <!--  自动注入  mode的名称为view的名称后面跟ViewModel,如果view本身以view结尾，Model就不需要View了  -->
+
     <!--
         设置无边框窗口  WindowChrome 描述窗口非工作区的自定义 GlassFrameThickness 窗口周围透明边框的宽度
         若要使没有玻璃框架的自定义窗口，请将 GlassFrameThickness 属性设置为统一值 0。 这将禁用和隐藏标准标题按钮。
