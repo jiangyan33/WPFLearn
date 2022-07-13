@@ -18,6 +18,10 @@ namespace Zhaoxi.SmartParking.Client.BaseModule
 
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
+            // 注册弹出框
+            containerRegistry.RegisterDialog<ModifyUserDialogView>();
+
+            // 注册导航
             containerRegistry.RegisterForNavigation<UserManagementView>();
         }
     }

@@ -1,10 +1,13 @@
 ﻿using Prism.Commands;
 using Prism.Regions;
+using Prism.Services.Dialogs;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Threading;
 using Zhaoxi.SmartParking.Client.BaseModule.Models;
+using Zhaoxi.SmartParking.Client.BaseModule.Views;
 using Zhaoxi.SmartParking.Client.Common;
 using Zhaoxi.SmartParking.Client.IBLL;
 
@@ -18,13 +21,17 @@ namespace Zhaoxi.SmartParking.Client.BaseModule.ViewModels
 
         private readonly Dispatcher _dispatcher;
 
-        public UserManagementViewModel(IRegionManager regionManager, ISysUserBLL sysUserBLL, Dispatcher dispatcher) : base(regionManager)
+        private readonly DialogService _dialogService;
+
+        public UserManagementViewModel(IRegionManager regionManager, ISysUserBLL sysUserBLL, Dispatcher dispatcher, DialogService dialogService) : base(regionManager)
         {
             PageTitle = "用户信息管理";
 
             _dispatcher = dispatcher;
 
             _sysUserBLL = sysUserBLL;
+
+            _dialogService = dialogService;
         }
 
         public override void Refresh()
@@ -71,15 +78,28 @@ namespace Zhaoxi.SmartParking.Client.BaseModule.ViewModels
 
         private void EditItem(object obj)
         {
+            var param = new DialogParameters();
 
+            param.Add("model", obj);
+
+            _dialogService.ShowDialog(nameof(ModifyUserDialogView), param, EditResult);
         }
 
         private void DeleteItem(object obj)
         {
-
+            if (MessageBox.Show("是否确认删除此用户信息？", "提示", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+            {
+                // 执行逻辑删除
+                this.Refresh();
+            }
         }
 
         private void SetRoles(object obj)
+        {
+
+        }
+
+        private void EditResult(IDialogResult dialogResult)
         {
 
         }
@@ -94,5 +114,6 @@ namespace Zhaoxi.SmartParking.Client.BaseModule.ViewModels
             });
 
         }
+
     }
 }
