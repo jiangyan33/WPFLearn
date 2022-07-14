@@ -9,5 +9,8 @@ namespace Zhaoxi.SmartParking.Server.IService
         public string GetMd5Str(string str);
 
         public bool ResetPassword(int userId);
+
+        public bool Save(SysUserInfo sysUserInfo);
+
     }
 }

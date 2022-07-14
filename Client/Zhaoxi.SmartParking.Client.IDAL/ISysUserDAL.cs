@@ -11,5 +11,8 @@ namespace Zhaoxi.SmartParking.Client.IDAL
 
         public Task<string> ResetPwd(string userId);
 
+        public Task<string> Save(string userId);
+
+
     }
 }

@@ -15,7 +15,6 @@ namespace Zhaoxi.SmartParking.Client.DAL
 
         public async Task<string> Login(string username, string password)
         {
-
             var content = new StringContent(JsonConvert.SerializeObject(new { username, password }), Encoding.UTF8, "application/json");
 
             return await PostDatas("user/login", content);
@@ -23,10 +22,16 @@ namespace Zhaoxi.SmartParking.Client.DAL
 
         public async Task<string> ResetPwd(string userId)
         {
-
             var content = new StringContent(userId, Encoding.UTF8, "application/json");
 
             return await PostDatas("user/resetpwd", content);
+        }
+
+        public async Task<string> Save(string userEntity)
+        {
+            var content = new StringContent(userEntity, Encoding.UTF8, "application/json");
+
+            return await PostDatas("user/save", content);
         }
     }
 }

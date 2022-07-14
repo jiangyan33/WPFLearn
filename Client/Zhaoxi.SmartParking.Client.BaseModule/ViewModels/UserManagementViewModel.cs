@@ -78,9 +78,18 @@ namespace Zhaoxi.SmartParking.Client.BaseModule.ViewModels
 
         private void EditItem(object obj)
         {
+            var value = obj as UserModel;
+
+
             var param = new DialogParameters();
 
-            param.Add("model", obj);
+            param.Add("model", new UserModel
+            {
+                UserId = value.UserId,
+                Age = value.Age,
+                RealName = value.RealName,
+                UserName = value.UserName,
+            });
 
             _dialogService.ShowDialog(nameof(ModifyUserDialogView), param, EditResult);
         }
@@ -101,7 +110,12 @@ namespace Zhaoxi.SmartParking.Client.BaseModule.ViewModels
 
         private void EditResult(IDialogResult dialogResult)
         {
+            if (dialogResult.Result != ButtonResult.Cancel)
+            {
+                MessageBox.Show("数据保存成功", "提示");
 
+                Refresh();
+            }
         }
 
         private void ResetPassword(object obj)

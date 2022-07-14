@@ -2,8 +2,11 @@
 using Prism.Mvvm;
 using Prism.Services.Dialogs;
 using System;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using Zhaoxi.SmartParking.Client.BaseModule.Models;
+using Zhaoxi.SmartParking.Client.Entity;
+using Zhaoxi.SmartParking.Client.IBLL;
 
 namespace Zhaoxi.SmartParking.Client.BaseModule.ViewModels
 {
@@ -15,6 +18,14 @@ namespace Zhaoxi.SmartParking.Client.BaseModule.ViewModels
         public string Title => _title;
 
         public event Action<IDialogResult> RequestClose;
+
+        private readonly ISysUserBLL _sysUserBLL;
+
+        public ModifyUserDialogViewModel(ISysUserBLL sysUserBLL)
+        {
+            _sysUserBLL = sysUserBLL;
+        }
+
 
         public bool CanCloseDialog()
         {
@@ -42,8 +53,24 @@ namespace Zhaoxi.SmartParking.Client.BaseModule.ViewModels
 
         public ICommand ConfirmCommand { get => new DelegateCommand(Confirm); }
 
-        private void Confirm()
+        private async void Confirm()
         {
+            // 修改保存
+
+            var model = new SysUserEntity();
+
+            model.Id = MainModel.UserId;
+
+            model.Age = MainModel.Age;
+
+            model.RealName = MainModel.RealName;
+
+            model.UserName = MainModel.UserName;
+
+            model.State = 1;
+
+            await _sysUserBLL.Save(model);
+
             RequestClose?.Invoke(new DialogResult(ButtonResult.OK));
         }
 
@@ -53,8 +80,5 @@ namespace Zhaoxi.SmartParking.Client.BaseModule.ViewModels
         {
             RequestClose?.Invoke(new DialogResult(ButtonResult.Cancel));
         }
-
-
-
     }
 }

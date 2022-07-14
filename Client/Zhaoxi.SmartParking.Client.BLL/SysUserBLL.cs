@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Newtonsoft.Json;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Zhaoxi.SmartParking.Client.Entity;
 using Zhaoxi.SmartParking.Client.IBLL;
@@ -36,6 +37,15 @@ namespace Zhaoxi.SmartParking.Client.BLL
         public async Task<bool> ResetPwd(string userId)
         {
             var result = await _sysUserDAL.ResetPwd(userId);
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<bool>(result);
+        }
+
+        public async Task<bool> Save(SysUserEntity sysUserEntity)
+        {
+            var param = JsonConvert.SerializeObject(sysUserEntity);
+
+            var result = await _sysUserDAL.Save(param);
 
             return Newtonsoft.Json.JsonConvert.DeserializeObject<bool>(result);
         }

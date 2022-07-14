@@ -46,5 +46,33 @@ namespace Zhaoxi.SmartParking.Server.Service
 
             return true;
         }
+
+        public bool Save(SysUserInfo sysUserInfo)
+        {
+            try
+            {
+                var userList = Context.Set<SysUserInfo>().Where(x => x.Id == sysUserInfo.Id).ToList();
+
+                foreach (var user in userList)
+                {
+                    user.Age = sysUserInfo.Age;
+
+                    user.RealName = sysUserInfo.RealName;
+
+                    user.UserName = sysUserInfo.UserName;
+
+                    user.State = sysUserInfo.State;
+                }
+
+                Context.SaveChanges();
+            }
+            catch
+            {
+                return false;
+            }
+
+            return true;
+        }
+
     }
 }

@@ -11,5 +11,8 @@ namespace Zhaoxi.SmartParking.Client.IBLL
         public Task<List<SysUserEntity>> All();
 
         public Task<bool> ResetPwd(string userId);
+
+        public Task<bool> Save(SysUserEntity sysUserEntity);
+
     }
 }

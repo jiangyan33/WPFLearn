@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace Zhaoxi.SmartParking.Client.Entity
 {
@@ -17,9 +16,11 @@ namespace Zhaoxi.SmartParking.Client.Entity
 
         public int Age { get; set; }
 
-        public List<MenuEntity> Menus { get; set; }
+        public int State { get; set; }
 
-        public List<RoleEntity> Roles { get; set; }
+        public List<MenuEntity> Menus { get; set; } = new List<MenuEntity>();
+
+        public List<RoleEntity> Roles { get; set; } = new List<RoleEntity>();
 
     }
 }

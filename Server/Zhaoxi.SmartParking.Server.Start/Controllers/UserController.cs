@@ -73,5 +73,13 @@ namespace Zhaoxi.SmartParking.Server.Start.Controllers
 
             return Ok(result);
         }
+
+        [HttpPost("save")]
+        public IActionResult Save([FromBody] SysUserInfo sysUserInfo)
+        {
+            var result = _sysUserInfoService.Save(sysUserInfo);
+
+            return Ok(result);
+        }
     }
 }
