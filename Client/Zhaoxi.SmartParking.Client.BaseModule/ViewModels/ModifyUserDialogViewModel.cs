@@ -2,7 +2,6 @@
 using Prism.Mvvm;
 using Prism.Services.Dialogs;
 using System;
-using System.Threading.Tasks;
 using System.Windows.Input;
 using Zhaoxi.SmartParking.Client.BaseModule.Models;
 using Zhaoxi.SmartParking.Client.Entity;

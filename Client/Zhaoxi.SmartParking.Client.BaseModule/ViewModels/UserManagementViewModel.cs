@@ -110,7 +110,7 @@ namespace Zhaoxi.SmartParking.Client.BaseModule.ViewModels
 
         private void EditResult(IDialogResult dialogResult)
         {
-            if (dialogResult.Result != ButtonResult.Cancel)
+            if (dialogResult.Result == ButtonResult.OK)
             {
                 MessageBox.Show("数据保存成功", "提示");
 

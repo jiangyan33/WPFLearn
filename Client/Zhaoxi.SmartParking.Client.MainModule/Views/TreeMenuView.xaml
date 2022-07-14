@@ -45,8 +45,9 @@
                 <Setter Property="KeyboardNavigation.AcceptsReturn" Value="True" />
                 <Setter Property="HorizontalContentAlignment" Value="Left" />
                 <Setter Property="VerticalContentAlignment" Value="Center" />
-                <Setter Property="Padding" Value="8,5" />
+                <Setter Property="Padding" Value="10,5" />
                 <Setter Property="Foreground" Value="#FF565656" />
+                <!--  如果TreeViewItem中没有设置字体大小，则使用这个设置  -->
                 <Setter Property="FontSize" Value="12" />
                 <Setter Property="BorderThickness" Value="0" />
                 <Setter Property="Template">
@@ -64,6 +65,7 @@
                                     <RowDefinition />
                                 </Grid.RowDefinitions>
 
+                                <!--  Grid中绑定双击事件  -->
                                 <Grid.InputBindings>
                                     <MouseBinding Command="{Binding OpenViewCommand}"
                                                   CommandParameter="{Binding}"
@@ -124,6 +126,7 @@
                                     <Setter Property="Foreground" Value="#FFFFFF" />
                                 </MultiTrigger>
 
+                                <!--  没有图标时给Margin占位置  -->
                                 <DataTrigger Binding="{Binding MenuIcon}" Value="{x:Null}">
                                     <Setter TargetName="root" Property="Margin" Value="10,0,0,0" />
                                 </DataTrigger>

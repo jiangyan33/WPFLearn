@@ -1,15 +1,14 @@
-﻿<UserControl
-    x:Class="Zhaoxi.SmartParking.Client.BaseModule.Views.UserManagementView"
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:local="clr-namespace:Zhaoxi.SmartParking.Client.BaseModule.Views"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:parism="http://prismlibrary.com/"
-    d:DesignHeight="450"
-    d:DesignWidth="800"
-    parism:ViewModelLocator.AutoWireViewModel="True"
-    mc:Ignorable="d">
+﻿<UserControl x:Class="Zhaoxi.SmartParking.Client.BaseModule.Views.UserManagementView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:Zhaoxi.SmartParking.Client.BaseModule.Views"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:parism="http://prismlibrary.com/"
+             d:DesignHeight="450"
+             d:DesignWidth="800"
+             parism:ViewModelLocator.AutoWireViewModel="True"
+             mc:Ignorable="d">
     <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -27,28 +26,25 @@
 
         <Border BorderBrush="#DDD" BorderThickness="0,0,0,1" />
 
-        <TextBox
-            Width="300"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Center"
-            Style="{DynamicResource SearchTextBoxStyle}" />
+        <TextBox Width="300"
+                 HorizontalAlignment="Left"
+                 VerticalAlignment="Center"
+                 Style="{DynamicResource SearchTextBoxStyle}" />
 
         <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
-            <Button
-                Width="70"
-                Margin="5,0"
-                Background="#FF0ABEFF"
-                Command="{Binding RefreshCommand}"
-                Content="刷新"
-                Style="{StaticResource NormalButtonStyle}" />
-            <Button
-                Width="80"
-                Margin="0,0,5,0"
-                Background="#FFF05005"
-                Command="{Binding AddCommand}"
-                Content="添加"
-                Style="{StaticResource IconWithContentButtonStyle}"
-                Tag="&#xe603;" />
+            <Button Width="70"
+                    Margin="5,0"
+                    Background="#FF0ABEFF"
+                    Command="{Binding RefreshCommand}"
+                    Content="刷新"
+                    Style="{StaticResource NormalButtonStyle}" />
+            <Button Width="80"
+                    Margin="0,0,5,0"
+                    Background="#FFF05005"
+                    Command="{Binding AddCommand}"
+                    Content="添加"
+                    Style="{StaticResource IconWithContentButtonStyle}"
+                    Tag="&#xe603;" />
         </StackPanel>
 
         <Grid Grid.Row="1">
@@ -68,28 +64,23 @@
                 </Grid.ColumnDefinitions>
 
                 <!--  内容的对齐方式和表头的对齐方式保持一致  -->
-                <TextBlock
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Center"
-                    Text="序号" />
-                <TextBlock
-                    Grid.Column="1"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Center"
-                    Text="头像" />
-                <TextBlock
-                    Grid.Column="2"
-                    VerticalAlignment="Center"
-                    Text="用户信息" />
-                <TextBlock
-                    Grid.Column="3"
-                    VerticalAlignment="Center"
-                    Text="角色" />
-                <TextBlock
-                    Grid.Column="4"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Center"
-                    Text="操作" />
+                <TextBlock HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           Text="序号" />
+                <TextBlock Grid.Column="1"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           Text="头像" />
+                <TextBlock Grid.Column="2"
+                           VerticalAlignment="Center"
+                           Text="用户信息" />
+                <TextBlock Grid.Column="3"
+                           VerticalAlignment="Center"
+                           Text="角色" />
+                <TextBlock Grid.Column="4"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           Text="操作" />
 
             </Grid>
             <!--  表体  -->
@@ -112,31 +103,27 @@
                             </Grid.ColumnDefinitions>
 
                             <!--  行与行之间的分割线  -->
-                            <Border
-                                Grid.ColumnSpan="5"
-                                BorderBrush="#EEE"
-                                BorderThickness="0,0,0,1"
-                                SnapsToDevicePixels="True" />
+                            <Border Grid.ColumnSpan="5"
+                                    BorderBrush="#EEE"
+                                    BorderThickness="0,0,0,1"
+                                    SnapsToDevicePixels="True" />
 
-                            <TextBlock
-                                HorizontalAlignment="Center"
-                                VerticalAlignment="Center"
-                                Text="{Binding Index}" />
+                            <TextBlock HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"
+                                       Text="{Binding Index}" />
 
-                            <Border
-                                Grid.Column="1"
-                                Width="40"
-                                Height="40"
-                                BorderBrush="White"
-                                BorderThickness="2"
-                                CornerRadius="20">
+                            <Border Grid.Column="1"
+                                    Width="40"
+                                    Height="40"
+                                    BorderBrush="White"
+                                    BorderThickness="2"
+                                    CornerRadius="20">
                                 <Border.Effect>
-                                    <DropShadowEffect
-                                        BlurRadius="10"
-                                        Direction="0"
-                                        Opacity="0.3"
-                                        ShadowDepth="0"
-                                        Color="Gray" />
+                                    <DropShadowEffect BlurRadius="10"
+                                                      Direction="0"
+                                                      Opacity="0.3"
+                                                      ShadowDepth="0"
+                                                      Color="Gray" />
                                 </Border.Effect>
 
                                 <Border.Background>
@@ -147,20 +134,18 @@
                             <StackPanel Grid.Column="2" Margin="0,10">
                                 <StackPanel Orientation="Horizontal">
                                     <TextBlock VerticalAlignment="Center" Text="{Binding RealName}" />
-                                    <TextBlock
-                                        Margin="10,0,0,0"
-                                        VerticalAlignment="Center"
-                                        FontSize="11"
-                                        Foreground="#888"
-                                        Text="状态：有效" />
+                                    <TextBlock Margin="10,0,0,0"
+                                               VerticalAlignment="Center"
+                                               FontSize="11"
+                                               Foreground="#888"
+                                               Text="状态：有效" />
                                 </StackPanel>
 
                                 <StackPanel Orientation="Horizontal">
                                     <TextBlock Foreground="#888" Text="{Binding UserName}" />
-                                    <TextBlock
-                                        Margin="10,0"
-                                        Foreground="#888"
-                                        Text="{Binding Age}" />
+                                    <TextBlock Margin="10,0"
+                                               Foreground="#888"
+                                               Text="{Binding Age}" />
                                 </StackPanel>
 
                                 <TextBlock>
@@ -194,11 +179,10 @@
                                 </TextBlock>
                             </StackPanel>
 
-                            <StackPanel
-                                Grid.Column="4"
-                                HorizontalAlignment="Center"
-                                VerticalAlignment="Center"
-                                Orientation="Horizontal">
+                            <StackPanel Grid.Column="4"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        Orientation="Horizontal">
                                 <TextBlock Margin="3,0">
                                     <Hyperlink Command="{Binding EditCommand}" CommandParameter="{Binding}">编辑</Hyperlink>
                                 </TextBlock>

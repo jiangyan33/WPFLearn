@@ -1,12 +1,6 @@
 ﻿using Prism.Ioc;
 using Prism.Modularity;
 using Prism.Unity;
-using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Threading;
 using Unity;
@@ -32,11 +26,9 @@ namespace ZHaoxi.SmartParking.Client.Start
 
         protected override void InitializeShell(Window shell)
         {
-
             if (Container.Resolve<LoginView>().ShowDialog() == true)
             {
                 base.InitializeShell(shell);
-
             }
             else
             {
@@ -46,9 +38,9 @@ namespace ZHaoxi.SmartParking.Client.Start
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
+            containerRegistry.RegisterSingleton<Dispatcher>(() => Application.Current.Dispatcher);
 
-            containerRegistry.Register<Dispatcher>(() => Application.Current.Dispatcher);
-
+            // 注册实例到IOC容器中 Registers a Transient Service
             containerRegistry.Register<ISysUserBLL, SysUserBLL>();
 
             containerRegistry.Register<ISysUserDAL, SysUserDAL>();
@@ -56,7 +48,7 @@ namespace ZHaoxi.SmartParking.Client.Start
 
         protected override void ConfigureModuleCatalog(IModuleCatalog moduleCatalog)
         {
-
+            // 实例化模块，比如一个用户模块，包括用户、角色、菜单的维护等信息
             moduleCatalog.AddModule<MainModule>();
 
             moduleCatalog.AddModule<BaseModule>();

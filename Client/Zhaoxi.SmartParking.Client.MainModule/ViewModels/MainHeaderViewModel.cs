@@ -13,7 +13,7 @@ namespace Zhaoxi.SmartParking.Client.MainModule.ViewModels
 
         public MainHeaderViewModel()
         {
-            CurrentUserName = GlobalEntity.CurrentUserInfo.UserName;
+            CurrentUserName = GlobalEntity.CurrentUserInfo.RealName;
         }
     }
 }

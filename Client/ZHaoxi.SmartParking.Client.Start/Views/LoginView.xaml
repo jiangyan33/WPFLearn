@@ -188,6 +188,7 @@
                 BorderBrush="#FFA5CEF0"
                 BorderThickness="2"
                 CornerRadius="40">
+            <!--  头像会给一个阴影效果  -->
             <Border.Effect>
                 <DropShadowEffect BlurRadius="10"
                                   Direction="265"
@@ -214,6 +215,7 @@
                          FontSize="18"
                          Template="{StaticResource PasswordBoxTemplate}" />
 
+            <!--  均分布局  -->
             <UniformGrid Margin="0,10" Rows="1">
                 <CheckBox VerticalContentAlignment="Center"
                           Content="自动登录"
